@@ -5,7 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
+import { FeatherModule } from 'angular-feather';
+import { LogOut } from 'angular-feather/icons';
 
+const icons = {
+
+  LogOut
+};
 
 @NgModule({
   declarations: [
@@ -17,7 +23,8 @@ import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DxButtonModule
+    DxButtonModule,
+    FeatherModule.pick(icons)
   ],
   providers: [],
   bootstrap: [AppComponent]
