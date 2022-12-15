@@ -1,0 +1,14 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.navbar {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    padding: 0 16px;
+    align-items: center;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
