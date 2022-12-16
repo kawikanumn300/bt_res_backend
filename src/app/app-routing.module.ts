@@ -3,13 +3,18 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/user-listview",
+    redirectTo: "/login",
     pathMatch: "full"
+  },
+  {
+    path:"navbar",
+    component:NavbarComponent
   },
   {
     path: 'mainmenu',
