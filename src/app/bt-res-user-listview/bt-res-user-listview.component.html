@@ -5,56 +5,100 @@
     <div class="cm-title-pages">จัดการข้อมูลผู้ใช้งาน > ข้อมูลผู้ใช้งาน</div>
   </div>
 
-    <div class="btn-class">
-      <dx-button icon="plus" id="btn-color-add-resorce" text="เพิ่ม"></dx-button>
+  <div class="dx-datagrid-header-panel">
+    <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection" role="toolbar">
+      <div class="dx-toolbar-items-container">
+        <div class="dx-toolbar-before">
+          <div class="dx-item dx-toolbar-item dx-toolbar-button">
+            <div class="dx-item-content dx-toolbar-item-content">
+              <div
+                class="dx-datagrid-search-panel dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-searchbox dx-show-clear-button dx-texteditor-empty dx-widget"
+                style="width: 240px;">
+                <div class="dx-texteditor-container">
+                  <div class="dx-texteditor-input-container">
+                    <div class="dx-icon dx-icon-search"></div><input autocomplete="off" aria-label="Search in data grid"
+                      class="dx-texteditor-input" type="text" spellcheck="false" tabindex="0" role="textbox">
+                    <div data-dx_placeholder="ค้นหา..." class="dx-placeholder"></div>
+                  </div>
+                  <div class="dx-texteditor-buttons-container"><span class="dx-clear-button-area"><span
+                        class="dx-icon dx-icon-clear"></span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dx-toolbar-center" style="margin: 0px 107.078px 0px 270px; float: none;"></div>
+        <div class="dx-toolbar-after">
+          <div class="dx-item dx-toolbar-item dx-toolbar-button">
+            <div class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
+              <dx-button icon="add" type="success" requirepermission="ADD" text=" เพิ่ม"
+                class="dx-btn-add dx-button dx-button-success dx-button-mode-contained dx-widget dx-button-has-icon dx-button-has-text"
+                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/user-detailview">
+                <div class="dx-button-content"><i class="dx-icon dx-icon-add"></i><span class="dx-button-text">
+                    เพิ่ม</span></div>
+              </dx-button><!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--btn-class  -->
+  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="BUDGET_TYPE_ID"
+    [showBorders]="true">
+
+
+    <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="BUDGET_TYPE_ID"
+      alignment="center">
+    </dxi-column>
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USE_STATUS" [width]="280">
+    </dxi-column>
+    <dxi-column alignment="center" caption="ชื่อจริง" dataField="USE_STATUS" [width]="200">
+    </dxi-column>
+    <dxi-column alignment="center" caption="นามสกุล" dataField="USE_STATUS" [width]="200">
+    </dxi-column>
+    <dxi-column alignment="center" caption="เบอร์โทร" dataField="USE_STATUS" [width]="200">
+    </dxi-column>
+    <dxi-column alignment="center" caption="สถานะ" dataField="USE_STATUS" [width]="120">
+    </dxi-column>
+    <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
+    </dxi-column>
+    <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+    </dxi-column>
+
+    <div id="" *dxTemplate="let valuelist of 'cellTemplate'" align="left">
+      {{ valuelist.data.BUDGET_TYPE_NAME}}
+    </div>
+
+    <div class="pointer" *dxTemplate="let valuelist of 'edit'">
+      <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564394-edit_81508.png" width="25px"
+        routerLink="/dev-extreme-data-grid-detail-view">
 
     </div>
-    <!--btn-class  -->
-    <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="BUDGET_TYPE_ID"
-      [showBorders]="true">
-      <div class="search-style">
-        <dxo-search-panel [visible]="true"></dxo-search-panel>
-        <dxi-column dataField="Task_Subject" [minWidth]="300"></dxi-column>
-        <dxi-column dataField="Task_Assigned_Employee_ID" caption="Assigned" [minWidth]="120">
-        </dxi-column>
-      </div>
+    <div class="pointer" *dxTemplate="let valuelist of 'delete'">
+      <img
+        src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
+        width="25px" onclick="confirm('Press a button!\n ลบหรือไม่ ')">
 
-      <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false"
-        dataField="BUDGET_TYPE_ID" alignment="center">
-      </dxi-column>
-      <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USE_STATUS" [width]="280">
-      </dxi-column>
-      <dxi-column alignment="center" caption="ชื่อจริง" dataField="USE_STATUS" [width]="200">
-      </dxi-column>
-      <dxi-column alignment="center" caption="นามสกุล" dataField="USE_STATUS" [width]="200">
-      </dxi-column>
-      <dxi-column alignment="center" caption="เบอร์โทร" dataField="USE_STATUS" [width]="200">
-      </dxi-column>
-      <dxi-column alignment="center" caption="สถานะ" dataField="USE_STATUS" [width]="100">
-      </dxi-column>
-      <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
-      </dxi-column>
-      <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
-      </dxi-column>
+    </div>
+  </dx-data-grid><br>
 
-      <div id="" *dxTemplate="let valuelist of 'cellTemplate'" align="left">
-        {{ valuelist.data.BUDGET_TYPE_NAME}}
-      </div>
+  <div class="dx-datagrid-pager dx-pager">
+    <div class="dx-pages">
+      <!--<div class="dx-info">แสดงผลหน้าที่ 1 ถึง 2 (จากทั้งหมด 8 รายการ)</div>-->
+      <div class="dx-page dx-selection" role="button" aria-label="Page 1" tabindex="0">1</div>
+      <div class="dx-page" role="button" aria-label="Page 2" tabindex="0">2</div>
+    </div>
+  </div>
 
-      <div class="pointer" *dxTemplate="let valuelist of 'edit'">
-        <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564394-edit_81508.png" width="25px"
-          routerLink="/dev-extreme-data-grid-detail-view">
-
-      </div>
-      <div class="pointer" *dxTemplate="let valuelist of 'delete'">
-        <img
-          src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
-          width="25px" onclick="confirm('Press a button!\n ลบหรือไม่ ')">
-
-      </div>
-    </dx-data-grid>
-  
-  <!--<div class="card">
+  <div class="buttons-column">
+    <div>
+      <dx-button stylingMode="contained" text="กลับหน้าหลัก" type="danger" [width]="150" icon="home"
+        routerLink="/mainmenu">
+      </dx-button>
+    </div>
+    <!--<div class="card">
     <dx-data-grid id="gridContainer" 
     [dataSource]="data" 
     [remoteOperations]="false" [allowColumnReordering]="true"
@@ -62,4 +106,4 @@
     [showBorders]="true"></dx-data-grid>
 
   </div>-->
-</div>
+  </div>

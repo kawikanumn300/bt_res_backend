@@ -3,7 +3,8 @@
 //font-family: "IBM Plex Sans Thai", sans-serif;//
 
 .bw-nav {
-    padding-top: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .cm-title-pages {
@@ -213,8 +214,15 @@
     font-size: .875rem;
     min-height: auto;
 }
-#btn-color-add-resorce {
-    cursor: pointer;
-    color: black !important;
-    background-color: rgb(41, 209, 41) !important;
+.dx-button-mode-contained.dx-button-success {
+    background-color: #5cb85c;
+    border-color: transparent;
+    color: #fff;
+    height: 35px;
+}
+.dx-button-mode-contained.dx-button-danger {
+    background-color: #5cb85c;
+    border-color: transparent;
+    color: #fff;
+    
 }
