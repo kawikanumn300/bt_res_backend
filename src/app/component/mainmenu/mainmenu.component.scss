@@ -1,35 +1,94 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@200&family=Thasadith&display=swap');
 
-.navbar {
-    font-family: "IBM Plex Sans Thai", sans-serif;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #2c5b99;
+
+// mianmenu-style //
+.row {
     display: flex;
-    padding: 0 16px;
-    align-items: center;
-    height: 100px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex-wrap:wrap; 
+    width: 100%; 
 }
-.navbar-brand-font {
-    color: #ffffff;
-    font-size: 24px;
+.m-50 {
+    margin: 20px 50px!important;
+    width: 100%;
+}
+.col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
     
 }
-.m-0 {
-    margin: 0!important;
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
 }
-.txttitle-name, .txttitle-user {
+.m-b-15 {
+    margin-bottom: 15px!important;
+}
+.block-system {
+    cursor: pointer;
+    display: flex;
+}
+
+.container {
+    display: flex;
+  //  width: 100%;
+    align-items: center;
+    position: relative;
+}
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.app-items {
     font-family: "IBM Plex Sans Thai", sans-serif;
-    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+    border-radius: 8px;
+    margin: 5px;
 }
-.txttitle-name {
-    font-weight: 600;
+.app-icon {
+    margin: -10px 15px 0 0;
+}
+.rounded {
+    border-radius: 6px!important;
+}
+.cm-system-img {
+    width: 50px;
+    padding-top: 10px;
+}
+.app-name {
+    font-size: 20px;
+    font-weight: 700;
+}
+.app-number {
+    right: 5%;
+    position: absolute;
+    font-size: 40px;
+    font-weight: 700;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+.col-foodtoday{
+        flex:  60%;
+}
+.block-item-ftd {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background: #265da5dc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    margin: 5px;
     color: #fff;
+    height: 150px;
 }
-.txttitle-user {
-    color: #fff;
-    font-size: .9rem;
-}
+

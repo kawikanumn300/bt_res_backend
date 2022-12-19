@@ -1,0 +1,36 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@200&family=Thasadith&display=swap');
+
+
+.navbar {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #2c5b99;
+    display: flex;
+    padding: 0 16px;
+    align-items: center;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-brand-font {
+    color: #ffffff;
+    font-size: 24px;
+    
+}
+.m-0 {
+    margin: 0!important;
+}
+.txttitle-name, .txttitle-user {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: 16px;
+}
+.txttitle-name {
+    font-weight: 600;
+    color: #fff;
+}
+.txttitle-user {
+    color: #fff;
+    font-size: .9rem;
+}

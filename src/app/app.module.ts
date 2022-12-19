@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
 import { BtResUserListviewComponent } from './bt-res-user-listview/bt-res-user-listview.component';
+
 import {
   DxDataGridModule,
   DxBulletModule,
@@ -14,6 +15,7 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { FeatherModule } from 'angular-feather';
 import { LogOut } from 'angular-feather/icons';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 const icons = {
 
@@ -26,6 +28,7 @@ const icons = {
     LoginComponent,
     MainmenuComponent,
     BtResUserListviewComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -34,8 +37,8 @@ const icons = {
     DxButtonModule,
     DxDataGridModule,
     DxBulletModule,
-  DxTemplateModule,
-  HttpClientModule,
+    DxTemplateModule,
+    HttpClientModule,
     FeatherModule.pick(icons)
   ],
   providers: [],
