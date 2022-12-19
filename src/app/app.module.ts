@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FeatherModule } from 'angular-feather';
 import { LogOut } from 'angular-feather/icons';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { BtResUserDetailviewComponent } from './bt-res-user-detailview/bt-res-user-detailview.component';
 
 const icons = {
 
@@ -29,6 +30,7 @@ const icons = {
     MainmenuComponent,
     BtResUserListviewComponent,
     NavbarComponent,
+    BtResUserDetailviewComponent,
 
   ],
   imports: [

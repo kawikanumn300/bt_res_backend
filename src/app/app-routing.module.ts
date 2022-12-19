@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { BtResUserDetailviewComponent } from './bt-res-user-detailview/bt-res-user-detailview.component';
+
 
 
 const routes: Routes = [
@@ -28,6 +30,10 @@ const routes: Routes = [
     path: 'user-listview',
     component: BtResUserListviewComponent
   },
+  {
+    path: 'user-detailview',
+    component:BtResUserDetailviewComponent
+  }
 ];
 
 @NgModule({
