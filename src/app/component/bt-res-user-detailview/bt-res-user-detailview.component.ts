@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./bt-res-user-detailview.component.scss']
 })
 export class BtResUserDetailviewComponent {
-
+  countries: string[] = [];
 }
+

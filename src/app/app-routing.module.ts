@@ -1,10 +1,11 @@
-import { BtResUserListviewComponent } from './bt-res-user-listview/bt-res-user-listview.component';
+
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { BtResUserDetailviewComponent } from './bt-res-user-detailview/bt-res-user-detailview.component';
+import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview/bt-res-user-detailview.component';
+import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-res-user-listview.component';
 
 
 

@@ -1,0 +1,140 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="padding-top: 3%;">
+
+    <div class="card">
+        <form action="your-action">
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">สมัคสมาชิก</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Username</div>
+                    <div class="dx-field-value">
+                        <dx-text-box>
+                            <dx-validator>
+                                <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+                                <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+                                <dxi-validation-rule type="async"
+                                    message="Email is already registered"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Password</div>
+                    <div class="dx-field-value">
+                        <dx-text-box mode="password">
+                            <dx-validator>
+                                <dxi-validation-rule type="required"
+                                    message="Password is required"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Confirm Password</div>
+                    <div class="dx-field-value">
+                        <dx-text-box mode="password">
+                            <dx-validator>
+                                <dxi-validation-rule type="required"
+                                    message="Confirm Password is required"></dxi-validation-rule>
+                                <dxi-validation-rule type="compare"
+                                    message="Password and Confirm Password do not match"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">ข้อมูลส่วนตัว</div>
+                <div class="dx-field">
+                    <div class="dx-field-label">FristName</div>
+                    <div class="dx-field-value">
+                        <dx-text-box value="">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                                <dxi-validation-rule type="pattern"
+                                    message="Do not use digits in the Name"></dxi-validation-rule>
+                                <dxi-validation-rule type="stringLength" [min]="2"
+                                    message="Name must have at least 2 symbols"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">LastName</div>
+                    <div class="dx-field-value">
+                        <dx-text-box value="">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                                <dxi-validation-rule type="pattern"
+                                    message="Do not use digits in the Name"></dxi-validation-rule>
+                                <dxi-validation-rule type="stringLength" [min]="2"
+                                    message="Name must have at least 2 symbols"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+            </div>
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">ช่องทางการติดต่อ</div>
+
+                <div class="dx-field">
+                    <div class="dx-field-label">Phone <i>(เบอร์ติดต่อ)</i></div>
+                    <div class="dx-field-value">
+                        <dx-text-box mask="(+66) 000-000-0000"
+                            maskInvalidMessage="The phone must have a correct USA phone format"
+                            validationMessagePosition="left">
+                            <dx-validator>
+                                <dxi-validation-rule type="pattern"
+                                    message="The phone must have a correct USA phone format"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Email</div>
+                    <div class="dx-field-value">
+                        <dx-text-box validationMessagePosition="left">
+                            <dx-validator>
+                                <dxi-validation-rule type="required" message="City is required"></dxi-validation-rule>
+                                <dxi-validation-rule type="pattern"
+                                    message="Do not use digits in the City name"></dxi-validation-rule>
+                                <dxi-validation-rule type="stringLength" [min]="2"
+                                    message="City must have at least 2 symbols"></dxi-validation-rule>
+                            </dx-validator>
+                        </dx-text-box>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field">
+                        <div class="dx-field-label">สถานะผู้ใช้งาน</div>
+                        <div class="dx-field-value">
+                          <dx-select-box
+                            [dataSource]="countries"
+                            validationMessagePosition="left"
+                          >
+                            <dx-validator>
+                              <dxi-validation-rule
+                                type="required"
+                                message="Country is required"
+                              ></dxi-validation-rule>
+                            </dx-validator>
+                          </dx-select-box>
+                        </div>
+                      </div>
+            </div>
+            <div class="dx-fieldset">
+                <dx-validation-summary id="summary"></dx-validation-summary>
+                <div class="row" style="align-items: center;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <dx-button width="50%" id="button" text="ลงทะเบียน" type="success" [useSubmitBehavior]="true">
+                    </dx-button>&nbsp;&nbsp;
+                    <dx-button width="45%" id="button" text="ยกเลิก" type="danger" [useSubmitBehavior]="true">
+                    </dx-button>
+                </div>
+            </div>
+            </div>
+        </form>
+
+    </div>
+</div>
