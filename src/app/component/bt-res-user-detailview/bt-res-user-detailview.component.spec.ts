@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BtResUserDetailviewComponent } from './bt-res-user-detailview.component';
 
 describe('BtResUserDetailviewComponent', () => {
