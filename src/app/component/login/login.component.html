@@ -1,34 +1,38 @@
 <div class="container top-bar" align="center">
 
 
-    <div class="card " style="max-width: 990px; max-height: 600px;">
-        <div class="row g-0 shardows-box">
-            <div class="col-img-main">
-                <div class="card-bg-left">
-                    
-                </div>
-            </div>
-            <div class="col-md-8 ">
-                <div class="card-body">
-                    <h1 class="card-title">เข้าสู่ระบบ</h1>
-                    <div class="border-text"></div>
-                    <div class="group-text-box">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" aria-label="Username"
-                                aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="รหัสผ่าน" aria-label="Password"
-                                aria-describedby="basic-addon1">
-                        </div>
-                    </div>
+  <div class="card " style="max-width: 990px; max-height: 600px;">
+    <div class="row g-0 shardows-box">
+      <div class="col-img-main">
+        <div class="card-bg-left">
 
-                    <button type="button" class="btn btn-success"routerLink="/mainmenu" >เข้าสู่ระบบ</button>
-                    <div class="foot-title">
-                        <p class="card-Description text-detail">ระบบสำหรับผู้ดูแล การสั่งอาหาร บริษัท Betimes Solutions</p>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
+      <div class="col-md-8 ">
+        <div class="card-body">
+          <h1 class="card-title">เข้าสู่ระบบ</h1>
+          <div class="border-text"></div>
+
+            <div class="group-text-box">
+
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" aria-label="Username"
+                  aria-describedby="basic-addon1" id="username" [(ngModel)]="username">
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="รหัสผ่าน" aria-label="Password"
+                  aria-describedby="basic-addon1" id="password" [(ngModel)]="password">
+              </div>
+
+            </div>
+            <button type="submit" class="btn btn-success" (click)="onSubmit()">เข้าสู่ระบบ</button>
+
+
+          <div class="foot-title">
+            <p class="card-Description text-detail">ระบบสำหรับผู้ดูแล การสั่งอาหาร บริษัท Betimes Solutions</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

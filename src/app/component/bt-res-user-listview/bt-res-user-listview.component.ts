@@ -1,4 +1,4 @@
-import { BtResUser, Value } from './../service/BtResUserService';
+import { BtResUser, Value } from '../../service/BtResUserService';
 import { Component, ViewChild } from '@angular/core';
 import { DxMultiViewComponent } from 'devextreme-angular';
 import { HttpClient} from '@angular/common/http';

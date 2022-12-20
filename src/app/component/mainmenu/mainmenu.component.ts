@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './mainmenu.component.html',
   styleUrls: ['./mainmenu.component.scss']
 })
-export class MainmenuComponent {
+export class MainmenuComponent  {
+
+
+
 
 }
