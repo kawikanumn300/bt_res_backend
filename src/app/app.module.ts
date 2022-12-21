@@ -62,7 +62,8 @@ const icons = {
     DxDateBoxModule,
     DxSelectBoxModule,
     DxCheckBoxModule,
-    DxValidationSummaryModule
+    DxValidationSummaryModule,
+    FormsModule,
 
   ],
   providers: [],
