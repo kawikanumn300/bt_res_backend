@@ -45,22 +45,22 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="BUDGET_TYPE_ID"
+  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID"
     [showBorders]="true">
 
 
-    <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="BUDGET_TYPE_ID"
+    <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USE_STATUS" [width]="280">
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="280">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อจริง" dataField="USE_STATUS" [width]="200">
+    <dxi-column alignment="center" caption="ชื่อจริง" dataField="USER_NAME" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="นามสกุล" dataField="USE_STATUS" [width]="200">
+    <dxi-column alignment="center" caption="นามสกุล" dataField="USER_LASTNAME" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="เบอร์โทร" dataField="USE_STATUS" [width]="200">
+    <dxi-column alignment="center" caption="เบอร์โทร" dataField="USER_PHONE_NUMBER" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ" dataField="USE_STATUS" [width]="120">
+    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="120">
     </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
     </dxi-column>
@@ -72,7 +72,7 @@
     </div>
 
     <div class="pointer" *dxTemplate="let valuelist of 'edit'">
-      <img src="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564394-edit_81508.png" width="25px"
+      <img src="assets/img/edit.png" width="25px"
         routerLink="/dev-extreme-data-grid-detail-view">
 
     </div>
@@ -92,18 +92,18 @@
     </div>
   </div>
 
-  <div class="buttons-column">
+  <!-- <div class="buttons-column">
     <div>
       <dx-button stylingMode="contained" text="กลับหน้าหลัก" type="danger" [width]="150" icon="home"
         routerLink="/mainmenu">
       </dx-button>
     </div>
-    <!--<div class="card">
-    <dx-data-grid id="gridContainer" 
-    [dataSource]="data" 
+    <div class="card">
+    <dx-data-grid id="gridContainer"
+    [dataSource]="data"
     [remoteOperations]="false" [allowColumnReordering]="true"
-    [rowAlternationEnabled]="true" 
+    [rowAlternationEnabled]="true"
     [showBorders]="true"></dx-data-grid>
 
-  </div>-->
+  </div> -->
   </div>

@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class BtResUserDetailviewComponent {
   countries: string[] = [];
+  username :string ="";
+
+  Submit(){
+    const data = this.username ;
+    console.log(data);
+  }
 }
 

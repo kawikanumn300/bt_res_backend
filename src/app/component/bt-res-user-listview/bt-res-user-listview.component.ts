@@ -1,5 +1,6 @@
-import { BtResUser, Value } from '../../service/BtResUserService';
-import { Component, ViewChild } from '@angular/core';
+
+import { BtResUser, Value ,baseUrl} from '../../service/BtResUserService';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { DxMultiViewComponent } from 'devextreme-angular';
 import { HttpClient} from '@angular/common/http';
 @Component({
@@ -7,16 +8,20 @@ import { HttpClient} from '@angular/common/http';
   templateUrl: './bt-res-user-listview.component.html',
   styleUrls: ['./bt-res-user-listview.component.scss']
 })
-export class BtResUserListviewComponent {
-  data: any[]=[]; // define a property to hold the data returned by the API
-  url : string = "http://192.168.10.144/intern-api/api/";
-  constructor(private http: HttpClient) {
-    // component constructor code here
+export class BtResUserListviewComponent implements OnInit{
+  data: any[]=[];
 
-    this.http.get<Value>(this.url+'InternArmUser/').subscribe(data => {
-      this.data = Object.values(data.USER_ID); // assign the data returned by the API to the property
-      console.log(data);
+  constructor(private http: HttpClient) {
+
+
+  }
+  ngOnInit(): void {
+
+    this.http.get<any>(baseUrl).subscribe(response => {
+      this.data = response.Value;
+       console.log(this.data);
     });
   }
+
 
 }

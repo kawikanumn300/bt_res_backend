@@ -1,3 +1,4 @@
+import { baseUrl } from './../../service/BtResUserService';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,7 +19,7 @@ export class LoginComponent {
 
   onSubmit() {
     const data = { USER_USERNAME: this.username, USER_PASSWORD: this.password };
-    this.http.post('http://localhost:43308/api/BtResUser/login', data, {
+    this.http.post(baseUrl+'/login', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(response => {
       this.value = Object.values(response);
