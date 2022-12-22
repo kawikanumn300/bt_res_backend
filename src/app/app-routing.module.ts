@@ -6,6 +6,7 @@ import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview/bt-res-user-detailview.component';
 import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-res-user-listview.component';
+import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
 
 
 
@@ -34,7 +35,12 @@ const routes: Routes = [
   {
     path: 'user-detailview',
     component:BtResUserDetailviewComponent
+  },
+  {
+    path: 'app-bt-res-user-edit',
+    component:BtResUserEditComponent
   }
+
 ];
 
 @NgModule({

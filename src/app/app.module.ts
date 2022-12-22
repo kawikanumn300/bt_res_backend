@@ -5,15 +5,18 @@ import {
   DxButtonModule,
   DxCheckBoxModule,
   DxDateBoxModule,
+  DxLoadIndicatorModule,
+  DxLoadPanelModule,
   DxSelectBoxModule,
   DxValidationSummaryModule,
-  DxValidatorModule } from 'devextreme-angular';
+  DxValidatorModule
+} from 'devextreme-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { MainmenuComponent } from './component/mainmenu/mainmenu.component';
-
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; 
 
 import {
   DxDataGridModule,
@@ -32,7 +35,8 @@ import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-
 import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview/bt-res-user-detailview.component';
 
 
-import {  FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
 const icons = {
 
   LogOut
@@ -46,6 +50,7 @@ const icons = {
     BtResUserListviewComponent,
     NavbarComponent,
     BtResUserDetailviewComponent,
+    BtResUserEditComponent,
 
   ],
   imports: [
@@ -66,6 +71,8 @@ const icons = {
     DxCheckBoxModule,
     DxValidationSummaryModule,
     FormsModule,
+    DxLoadPanelModule,
+    DxLoadIndicatorModule,
 
   ],
   providers: [],

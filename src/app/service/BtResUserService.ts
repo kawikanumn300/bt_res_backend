@@ -31,3 +31,34 @@ export interface Value {
   CREATE_DATE: Date;
   UPDATE_DATE: Date;
 }
+
+const gender: string[] = ['Male', 'Female'];
+let s = 123456789;
+@Injectable()
+export class Service {
+  random() {
+    s = (1103515245 * s + 12345) % 2147483647;
+    return s % (10 - 1);
+  }
+
+  generateData(count: number) {
+    let i: number;
+    const startBirthDate = Date.parse('1/1/1975');
+    const endBirthDate = Date.parse('1/1/1992');
+
+    for (i = 0; i < count; i++) {
+      const birthDate = new Date(startBirthDate + Math.floor(
+        this.random()
+                * (endBirthDate - startBirthDate) / 10,
+      ));
+      birthDate.setHours(12);
+
+      const nameIndex = this.random();
+      const item = {
+        id: i + 1,
+        gender: gender[Math.floor(nameIndex / 5)],
+        birthDate,
+      };   
+    }
+
+  }}
