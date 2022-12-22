@@ -2,16 +2,16 @@
 
 <div class="container" style="padding-top: 1%;">
   <div class="bw-nav">
-    <div class="cm-title-pages">จัดการข้อมูลผู้ใช้งาน > ลงทะเบียนผู้ใช้งาน</div>
-  </div>  
+    <div class="cm-title-pages">จัดการข้อมูลผู้ใช้งาน > {{title}}</div>
+  </div>
   <div class="card">
     <form action="your-action"(ngSubmit)="Submit()">
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header">สมัคสมาชิก</div>
+        <div class="dx-fieldset-header">{{head}}</div>
         <div class="dx-field">
           <div class="dx-field-label">Username</div>
           <div class="dx-field-value">
-            <dx-text-box>
+            <dx-text-box [(value)]="username">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
               </dx-validator>

@@ -17,8 +17,8 @@
                 <div class="dx-texteditor-container">
                   <div class="dx-texteditor-input-container">
                     <div class="dx-icon dx-icon-search"></div><input autocomplete="off" aria-label="Search in data grid"
-                      class="dx-texteditor-input" type="text" spellcheck="false" tabindex="0" role="textbox">
-                    <div data-dx_placeholder="ค้นหา..." class="dx-placeholder"></div>
+                      class="dx-texteditor-input" type="text" spellcheck="false" tabindex="0" role="textbox" placeholder="ค้นหา...">
+                    <div  class="dx-placeholder"></div>
                   </div>
                   <div class="dx-texteditor-buttons-container"><span class="dx-clear-button-area"><span
                         class="dx-icon dx-icon-clear"></span></span></div>
@@ -45,8 +45,7 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID"
-    [showBorders]="true">
+  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID" [showBorders]="true">
 
 
     <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
@@ -63,29 +62,37 @@
     <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="120">
     </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
+
+       <div class="pointer" *dxTemplate="let d of 'edit'">
+      <img src="assets/img/edit.png" width="25px"
+      (click)="editdata($event, d)">
+    </div>
     </dxi-column>
     <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
 
       <div class="pointer" *dxTemplate="let d of 'delete'">
-      <img
-        src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
-        width="25px" (click)="deletedata($event, d)">
+        <img
+          src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
+          width="25px" (click)="deletedata($event, d)">
 
-    </div>
+      </div>
     </dxi-column>
 
 
-    <div class="pointer" *dxTemplate="let data of 'edit'">
-      <img src="assets/img/edit.png" width="25px"
-        routerLink="/app-bt-res-user-edit">
 
-    </div>
 
+
+
+
+    <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+    <dxo-paging [pageSize]="10"> </dxo-paging>
+    <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
+      [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
+    </dxo-pager>
   </dx-data-grid>
-
   <br>
+</div>
 
 
 
 
-  </div>

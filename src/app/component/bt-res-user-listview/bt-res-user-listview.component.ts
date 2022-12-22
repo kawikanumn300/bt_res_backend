@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
 
 import { BtResUser, Value ,baseUrl , Service } from '../../service/BtResUserService';
@@ -16,7 +17,8 @@ import DataSource from 'devextreme/data/data_source';
 export class BtResUserListviewComponent implements OnInit{
   data: any;
   id_delete:any;
-  constructor(private http: HttpClient) {
+  id_edit:any;
+  constructor(private http: HttpClient,private router:Router) {
 
 
   }
@@ -63,5 +65,10 @@ export class BtResUserListviewComponent implements OnInit{
           }
         )})
     console.log(d.data.USER_ID);
+  }
+
+  editdata(event:any,d:any){
+    this.id_edit = d.data.USER_ID;
+    this.router.navigate(['/user-detailview',{id:this.id_edit}]);
   }
 }
