@@ -16,6 +16,4 @@ export class MainmenuComponent  implements OnInit {
   todayDate : Date = new Date();
   todayString : string = new Date().toDateString();
   todayISOString : string = new Date().toISOString();
-
-
 }

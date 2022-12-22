@@ -82,28 +82,26 @@
         width="25px" onclick="confirm('Press a button!\n ลบหรือไม่ ')">
 
     </div>
+    <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+    <dxo-paging [pageSize]="10"> </dxo-paging>
+    <dxo-pager
+      [visible]="true"
+      [allowedPageSizes]="allowedPageSizes"
+      [displayMode]="displayMode"
+      [showPageSizeSelector]="showPageSizeSelector"
+      [showInfo]="showInfo"
+      [showNavigationButtons]="showNavButtons"
+    >
+    </dxo-pager>
   </dx-data-grid><br>
 
   <div class="dx-datagrid-pager dx-pager">
     <div class="dx-pages">
-      <!--<div class="dx-info">แสดงผลหน้าที่ 1 ถึง 2 (จากทั้งหมด 8 รายการ)</div>-->
+      <!--<div class="dx-info">แสดงผลหน้าที่ 1 ถึง 2 (จากทั้งหมด 8 รายการ)
       <div class="dx-page dx-selection" role="button" aria-label="Page 1" tabindex="0">1</div>
-      <div class="dx-page" role="button" aria-label="Page 2" tabindex="0">2</div>
+      <div class="dx-page" role="button" aria-label="Page 2" tabindex="0">2</div></div>-->
     </div>
   </div>
 
-  <!-- <div class="buttons-column">
-    <div>
-      <dx-button stylingMode="contained" text="กลับหน้าหลัก" type="danger" [width]="150" icon="home"
-        routerLink="/mainmenu">
-      </dx-button>
-    </div>
-    <div class="card">
-    <dx-data-grid id="gridContainer"
-    [dataSource]="data"
-    [remoteOperations]="false" [allowColumnReordering]="true"
-    [rowAlternationEnabled]="true"
-    [showBorders]="true"></dx-data-grid>
-
-  </div> -->
+ 
   </div>
