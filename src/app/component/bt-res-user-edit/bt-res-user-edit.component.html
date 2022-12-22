@@ -12,7 +12,7 @@
             <div class="dx-field-value">
               <dx-text-box  [readOnly]="true">
                 <dx-validator>
-                  <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+                  <dxi-validation-rule></dxi-validation-rule>
                 </dx-validator>
               </dx-text-box>
             </div>
@@ -98,7 +98,8 @@
             <div class="dx-field">
               <div class="dx-field-label">สถานะผู้ใช้งาน</div>
               <div class="dx-field-value">
-                <dx-select-box dataSource="" validationMessagePosition="left">
+                <dx-select-box [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
+                [(value)]="statusrecord">
                   <dx-validator>
                     <!-- <dxi-validation-rule type="required" message="Country is required"></dxi-validation-rule> -->
                   </dx-validator>
