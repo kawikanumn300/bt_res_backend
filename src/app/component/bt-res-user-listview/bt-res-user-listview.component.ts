@@ -15,7 +15,7 @@ export class BtResUserListviewComponent implements OnInit{
   }
  
 
-  readonly allowedPageSizes = ['แสดงคอลั่ม ',5, 10, 'ทั้งหมด'];
+  readonly allowedPageSizes = ['แสดงคอลั่ม ', 5, 10, 'all'];
 
   readonly displayModes = [{ text: "Display Mode 'full'", value: 'full' }, { text: "Display Mode 'compact'", value: 'compact' }];
 
