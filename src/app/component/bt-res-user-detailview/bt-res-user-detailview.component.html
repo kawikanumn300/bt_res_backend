@@ -3,7 +3,7 @@
 <div class="container" style="padding-top: 3%;">
 
   <div class="card">
-    <form action="your-action">
+    <form action="your-action"(ngSubmit)="Submit()">
       <div class="dx-fieldset">
         <div class="dx-fieldset-header">สมัคสมาชิก</div>
         <div class="dx-field">
@@ -19,7 +19,7 @@
         <div class="dx-field">
           <div class="dx-field-label">Password</div>
           <div class="dx-field-value">
-            <dx-text-box mode="password">
+            <dx-text-box mode="password" [(value)]="password">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
               </dx-validator>
@@ -29,10 +29,13 @@
         <div class="dx-field">
           <div class="dx-field-label">Confirm Password</div>
           <div class="dx-field-value">
-            <dx-text-box mode="password">
+            <dx-text-box mode="password" [(value)]="confirmpassword"
+              [validationStatus]="checkPasswordMatch() ? 'valid' : 'invalid'"
+              [validationError]="{ message: 'Passwords do not match' }">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Confirm Password is required"></dxi-validation-rule>
-
+                <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
+                  message="Password and Confirm Password do not match"></dxi-validation-rule>
               </dx-validator>
             </dx-text-box>
           </div>
@@ -43,7 +46,7 @@
         <div class="dx-field">
           <div class="dx-field-label">FristName</div>
           <div class="dx-field-value">
-            <dx-text-box value="">
+            <dx-text-box [(value)]="firstname">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
@@ -55,7 +58,7 @@
         <div class="dx-field">
           <div class="dx-field-label">LastName</div>
           <div class="dx-field-value">
-            <dx-text-box value="">
+            <dx-text-box [(value)]="lastname">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
@@ -72,7 +75,7 @@
           <div class="dx-field-label">Phone <i>(เบอร์ติดต่อ)</i></div>
           <div class="dx-field-value">
             <dx-text-box mask="(+66) 000-000-0000" maskInvalidMessage="The phone must have a correct USA phone format"
-              validationMessagePosition="left">
+              validationMessagePosition="left" [(value)]="phone">
               <dx-validator>
                 <dxi-validation-rule type="pattern"
                   message="The phone must have a correct USA phone format"></dxi-validation-rule>
@@ -83,7 +86,7 @@
         <div class="dx-field">
           <div class="dx-field-label">Email</div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left">
+            <dx-text-box validationMessagePosition="left" [(value)]="email">
               <dx-validator>
                 <dxi-validation-rule type="required" message="City is required"></dxi-validation-rule>
                 <dxi-validation-rule type="email" message="Do not email"></dxi-validation-rule>
@@ -97,9 +100,10 @@
           <div class="dx-field">
             <div class="dx-field-label">สถานะผู้ใช้งาน</div>
             <div class="dx-field-value">
-              <dx-select-box [dataSource]="countries" validationMessagePosition="left">
+              <dx-select-box [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
+                [(value)]="statusrecord">
                 <dx-validator>
-                  <!-- <dxi-validation-rule type="required" message="Country is required"></dxi-validation-rule> -->
+
                 </dx-validator>
               </dx-select-box>
             </div>
@@ -109,9 +113,10 @@
           <dx-validation-summary id="summary"></dx-validation-summary>
           <div class="row" style="align-items: center;">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <dx-button width="50%" id="button" text="ลงทะเบียน" type="success" (click)="Submit()" [useSubmitBehavior]="true">
+            <dx-button width="50%" id="buttonsummit" text="ลงทะเบียน" type="submit"
+              [useSubmitBehavior]="true">
             </dx-button>&nbsp;&nbsp;
-            <dx-button width="45%" id="button" text="ยกเลิก" type="danger" >
+            <dx-button width="45%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview">
             </dx-button>
           </div>
         </div>

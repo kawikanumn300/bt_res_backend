@@ -65,24 +65,25 @@
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
     </dxi-column>
     <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+
+      <div class="pointer" *dxTemplate="let d of 'delete'">
+      <img
+        src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
+        width="25px" (click)="deletedata($event, d)">
+
+    </div>
     </dxi-column>
 
-    <div id="" *dxTemplate="let valuelist of 'cellTemplate'" align="left">
-      {{ valuelist.data.BUDGET_TYPE_NAME}}
-    </div>
 
-    <div class="pointer" *dxTemplate="let valuelist of 'edit'">
+    <div class="pointer" *dxTemplate="let data of 'edit'">
       <img src="assets/img/edit.png" width="25px"
         routerLink="/dev-extreme-data-grid-detail-view">
 
     </div>
-    <div class="pointer" *dxTemplate="let valuelist of 'delete'">
-      <img
-        src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
-        width="25px" onclick="confirm('Press a button!\n ลบหรือไม่ ')">
 
-    </div>
-  </dx-data-grid><br>
+  </dx-data-grid>
+
+  <br>
 
   <div class="dx-datagrid-pager dx-pager">
     <div class="dx-pages">

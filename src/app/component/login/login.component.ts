@@ -2,6 +2,7 @@ import { baseUrl } from './../../service/BtResUserService';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,7 @@ export class LoginComponent {
         }
         else {
           console.log("user not have permission")
+
         }
 
       } else {

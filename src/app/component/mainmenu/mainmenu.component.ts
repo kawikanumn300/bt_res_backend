@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainmenuComponent  {
 
+constructor(private router: ActivatedRoute) {}
 
 
 

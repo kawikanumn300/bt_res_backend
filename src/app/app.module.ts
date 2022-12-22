@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
@@ -20,7 +21,8 @@ import {
   DxTemplateModule,
   DxTextBoxModule,
   DxFormModule,
-  DxTooltipModule
+  DxTooltipModule,
+
 } from 'devextreme-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FeatherModule } from 'angular-feather';
