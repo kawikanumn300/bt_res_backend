@@ -84,7 +84,7 @@ export class BtResUserDetailviewComponent implements OnInit {
       RECORD_STATUS: "A",
       USER_PHONE_NUMBER: this.phone,
       USER_EMAIL: this.email,
-      USER_RIGHTS: "U",
+      //USER_RIGHTS: "U",
       USER_STATUS: this.usestatus
     };
     // const formData = new FormData();
