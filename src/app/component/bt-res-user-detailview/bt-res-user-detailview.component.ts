@@ -34,7 +34,7 @@ export class BtResUserDetailviewComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
       this.title = "ลงทะเบียนผู้ใช้งาน";
-      this.head = "สมัคสมาชิก";
+      this.head = "ลงทะเบียนผู้ใช้งาน";
       this.username = "";
       this.password = "";
       this.confirmpassword = "";
