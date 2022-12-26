@@ -5,11 +5,11 @@
     <div class="cm-title-pages">จัดการข้อมูลผู้ใช้งาน > {{title}}</div>
   </div>
   <div class="card">
-    <form action="your-action"(ngSubmit)="Submit()">
+    <form action="your-action" (ngSubmit)="Submit()">
       <div class="dx-fieldset">
         <div class="dx-fieldset-header">{{head}}</div>
         <div class="dx-field">
-          <div class="dx-field-label">Username</div>
+          <div class="dx-field-label">ชื่อผู้ใช้</div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="username">
               <dx-validator>
@@ -18,35 +18,37 @@
             </dx-text-box>
           </div>
         </div>
-        <div class="dx-field">
-          <div class="dx-field-label">Password</div>
-          <div class="dx-field-value">
-            <dx-text-box mode="password" [(value)]="password">
-              <dx-validator>
-                <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
-              </dx-validator>
-            </dx-text-box>
+        <div class="row">
+          <div class="dx-field">
+            <div class="dx-field-label">รหัสผ่าน</div>
+            <div class="dx-field-value">
+              <dx-text-box mode="password" [(value)]="password">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
           </div>
-        </div>
-        <div class="dx-field">
-          <div class="dx-field-label">Confirm Password</div>
-          <div class="dx-field-value">
-            <dx-text-box mode="password" [(value)]="confirmpassword"
-              [validationStatus]="checkPasswordMatch() ? 'valid' : 'invalid'"
-              [validationError]="{ message: 'Passwords do not match' }">
-              <dx-validator>
-                <dxi-validation-rule type="required" message="Confirm Password is required"></dxi-validation-rule>
-                <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
-                  message="Password and Confirm Password do not match"></dxi-validation-rule>
-              </dx-validator>
-            </dx-text-box>
+          <div class="dx-field">
+            <div class="dx-field-label">ยืนยันรหัสผ่าน</div>
+            <div class="dx-field-value">
+              <dx-text-box mode="password" [(value)]="confirmpassword"
+                [validationStatus]="checkPasswordMatch() ? 'valid' : 'invalid'"
+                [validationError]="{ message: 'Passwords do not match' }">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Confirm Password is required"></dxi-validation-rule>
+                  <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
+                    message="Password and Confirm Password do not match"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
           </div>
         </div>
       </div>
       <div class="dx-fieldset">
         <div class="dx-fieldset-header">ข้อมูลส่วนตัว</div>
         <div class="dx-field">
-          <div class="dx-field-label">FristName</div>
+          <div class="dx-field-label">ชื่อ</div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="firstname">
               <dx-validator>
@@ -58,7 +60,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">LastName</div>
+          <div class="dx-field-label">นามสกุล</div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="lastname">
               <dx-validator>
@@ -70,11 +72,11 @@
           </div>
         </div>
       </div>
+
       <div class="dx-fieldset">
         <div class="dx-fieldset-header">ช่องทางการติดต่อ</div>
-
         <div class="dx-field">
-          <div class="dx-field-label">Phone <i>(เบอร์ติดต่อ)</i></div>
+          <div class="dx-field-label">เบอร์มือถือ</div>
           <div class="dx-field-value">
             <dx-text-box mask="(+66) 000-000-0000" maskInvalidMessage="The phone must have a correct USA phone format"
               validationMessagePosition="left" [(value)]="phone">
@@ -86,7 +88,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">Email</div>
+          <div class="dx-field-label">อีเมลล์</div>
           <div class="dx-field-value">
             <dx-text-box validationMessagePosition="left" [(value)]="email">
               <dx-validator>
@@ -115,8 +117,7 @@
           <dx-validation-summary id="summary"></dx-validation-summary>
           <div class="row" style="align-items: center;">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <dx-button width="50%" id="buttonsummit" text="ลงทะเบียน" type="submit"
-              [useSubmitBehavior]="true">
+            <dx-button width="50%" id="buttonsummit" text="ลงทะเบียน" type="submit" [useSubmitBehavior]="true">
             </dx-button>&nbsp;&nbsp;
             <dx-button width="45%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview">
             </dx-button>
@@ -124,6 +125,5 @@
         </div>
       </div>
     </form>
-
   </div>
 </div>
