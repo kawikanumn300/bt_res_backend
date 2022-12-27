@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="bw-nav">
-    <div class="cm-title-pages"  style="font-weight:bold;">จัดการข้อมูลผู้ใช้งาน > ข้อมูลผู้ใช้งาน</div>
+    <div class="cm-title-pages"style="font-weight:bold;" >จัดการข้อมูลร้านอาหาร</div>
   </div>
 
   <div class="dx-datagrid-header-panel">
@@ -34,7 +34,7 @@
             <div class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
               <dx-button icon="add" type="success" requirepermission="ADD" text=" เพิ่ม"
                 class="dx-btn-add dx-button dx-button-success dx-button-mode-contained dx-widget dx-button-has-icon dx-button-has-text"
-                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/user-detailview">
+                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/resname-detailview">
                 <div class="dx-button-content"><i class="dx-icon dx-icon-add"></i><span class="dx-button-text">
                     เพิ่ม</span></div>
               </dx-button><!---->
@@ -46,19 +46,17 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID" [showBorders]="true">
-    <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
+  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID" [showBorders]="true">
+    <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="280">
+    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_NAME" [width]="280">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อจริง" dataField="USER_NAME" [width]="200">
+    <dxi-column alignment="center" caption="เบอร์โทร ร้านอาหาร" dataField="RES_PHONE" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="นามสกุล" dataField="USER_LASTNAME" [width]="200">
+    <dxi-column alignment="center" caption="สถานะ เปิด/ปิด" dataField="RES_STATUS" [width]="150">
     </dxi-column>
-    <dxi-column alignment="center" caption="เบอร์โทร" dataField="USER_PHONE_NUMBER" [width]="200">
-    </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="120">
+    <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_DETAIL" [width]="360">
     </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
 

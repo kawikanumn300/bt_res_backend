@@ -5,11 +5,11 @@ import { Dialogue } from 'src/app/assete/dialog';
 import { baseUrl, BtResUser, Value } from 'src/app/service/BtResUserService';
 
 @Component({
-  selector: 'user-detailview',
-  templateUrl: './bt-res-user-detailview.component.html',
-  styleUrls: ['./bt-res-user-detailview.component.scss']
+  selector: 'resname-detailview',
+  templateUrl: './bt-res-name-detailview.component.html',
+  styleUrls: ['./bt-res-name-detailview.component.scss']
 })
-export class BtResUserDetailviewComponent implements OnInit {
+export class BtResNameDetailviewComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
   title = "";
@@ -25,16 +25,20 @@ export class BtResUserDetailviewComponent implements OnInit {
   email = "";
   statusrecord = "";
   data: any;
+  
   status = [
     "ใช้งาน", "ไม่ใช้งาน"
+  ];
+  opentime = [
+    "เปิดร้าน", "ปิดร้าน"
   ];
   read : boolean = true;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
-      this.title = "ลงทะเบียนผู้ใช้งาน";
-      this.head = "ลงทะเบียนผู้ใช้งาน";
+      this.title = "เพิ่มข้อมูลร้านอาหาร";
+      this.head = "เพิ่มข้อมูลร้านอาหาร";
       this.username = "";
       this.password = "";
       this.confirmpassword = "";
@@ -47,8 +51,8 @@ export class BtResUserDetailviewComponent implements OnInit {
       this.read= false;
     } else {
       console.log(this.id);
-      this.title = "แก้ใขข้อมูลผู้ใช้งาน";
-      this.head = "แก้ใขข้อมูลผู้ใช้งาน";
+      this.title = "แก้ใขข้อมูลร้านอาหาร";
+      this.head = "แก้ใขข้อมูลร้านอาหาร";
       this.http.get<BtResUser>(baseUrl + '/' + this.id).subscribe(response => {
         this.data = response;
         console.log(this.data.Value.USER_USERNAME);
