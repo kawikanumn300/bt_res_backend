@@ -7,6 +7,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview/bt-res-user-detailview.component';
 import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-res-user-listview.component';
 import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
+import { BtResNameListComponent } from './component/bt-res-name-listview/bt-res-name-list.component';
+import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview/bt-res-name-detailview.component';
 
 
 
@@ -15,6 +17,14 @@ const routes: Routes = [
     path: "",
     redirectTo: "/login",
     pathMatch: "full"
+  },
+  {
+    path:"resname-list",
+    component:BtResNameListComponent
+  },
+  {
+    path:"resname-detailview",
+    component:BtResNameDetailviewComponent
   },
   {
     path:"navbar",
@@ -37,7 +47,7 @@ const routes: Routes = [
     component:BtResUserDetailviewComponent
   },
   {
-    path: 'app-bt-res-user-edit',
+    path: 'user-edit',
     component:BtResUserEditComponent
   }
 

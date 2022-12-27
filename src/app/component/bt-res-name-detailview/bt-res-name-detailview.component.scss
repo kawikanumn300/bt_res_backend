@@ -1,0 +1,44 @@
+
+.row-btn{
+    padding-top: 10px;
+    padding-left: 40%;
+  }
+  .container{
+      width: 45%;
+  }
+  .bw-nav {
+      padding-top: 5%;
+      padding-bottom: 2%;
+  }
+  .cm-title-pages {
+      font-size: 25px;
+  
+      color: black;
+      padding-bottom: 10px;
+  }
+  ::ng-deep #form-container {
+      margin: 10px;
+    }
+  
+    ::ng-deep .long-title h3 {
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+      font-weight: 200;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .card{
+      box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+      --bs-card-border-width: 0px;
+    }
+  
+    ::ng-deep #buttonsummit {
+     background-color:  #5cb85c;
+     color:#fff;
+     
+    }
+    .dx-button-mode-contained .dx-icon {
+      color: #fff;
+  }
+  
+  

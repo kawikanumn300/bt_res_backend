@@ -37,6 +37,8 @@ import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview
 
 import { FormsModule } from '@angular/forms';
 import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
+import { BtResNameListComponent } from './component/bt-res-name-listview/bt-res-name-list.component';
+import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview/bt-res-name-detailview.component';
 const icons = {
 
   LogOut
@@ -51,6 +53,8 @@ const icons = {
     NavbarComponent,
     BtResUserDetailviewComponent,
     BtResUserEditComponent,
+    BtResNameListComponent,
+    BtResNameDetailviewComponent,
 
   ],
   imports: [

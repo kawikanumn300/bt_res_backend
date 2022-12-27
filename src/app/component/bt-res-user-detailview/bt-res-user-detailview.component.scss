@@ -1,5 +1,6 @@
 
 .row-btn{
+  padding-top: 10px;
   padding-left: 40%;
 }
 .container{
@@ -34,5 +35,9 @@
   ::ng-deep #buttonsummit {
    background-color:  #5cb85c;
    color:#fff;
+   
   }
+  .dx-button-mode-contained .dx-icon {
+    color: #fff;
+}
 

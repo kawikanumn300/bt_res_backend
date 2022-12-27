@@ -2,12 +2,12 @@
 
 <div class="container" style="padding-top: 1%;">
   <div class="bw-nav">
-    <div class="cm-title-pages">จัดการข้อมูลผู้ใช้งาน > {{title}}</div>
+    <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลผู้ใช้งาน > {{title}}</div>
   </div>
   <div class="card">
     <form action="your-action" (ngSubmit)="Submit()">
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header">{{head}}</div>
+        <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
         <div class="dx-field">
           <div class="dx-field-label">ชื่อผู้ใช้</div>
           <div class="dx-field-value">
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header">ข้อมูลส่วนตัว</div>
+        <div class="dx-fieldset-header"  style="font-weight:bold;">ข้อมูลส่วนตัว</div>
         <div class="dx-field">
           <div class="dx-field-label">ชื่อ</div>
           <div class="dx-field-value">
@@ -74,7 +74,7 @@
       </div>
 
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header">ช่องทางการติดต่อ</div>
+        <div class="dx-fieldset-header"  style="font-weight:bold;">ช่องทางการติดต่อ</div>
         <div class="dx-field">
           <div class="dx-field-label">เบอร์มือถือ</div>
           <div class="dx-field-value">
@@ -102,7 +102,7 @@
         </div>
         <div class="dx-field">
           <div class="dx-field">
-            <div class="dx-field-label">สถานะผู้ใช้งาน</div>
+            <div class="dx-field-label">สถานะการใช้งาน</div>
             <div class="dx-field-value">
               <dx-select-box [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
                 [(value)]="statusrecord">
@@ -112,13 +112,28 @@
               </dx-select-box>
             </div>
           </div>
-        </div>    
+        </div>
+        <div class="dx-field">
+          <div class="dx-field">
+            <div class="dx-field-label">สถานะผู้ใช้งาน</div>
+            <div class="dx-field-value">
+              <dx-select-box>
+                <dx-validator>
+
+                </dx-validator>
+              </dx-select-box>
+            </div>
+          </div>
+        </div>
 
         <div class="row-btn">
-            <dx-button width="50%" id="buttonsummit" text="ลงทะเบียน" type="submit" [useSubmitBehavior]="true">
-            </dx-button>&nbsp;
-            <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview">
-            </dx-button>
+          <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
+            [useSubmitBehavior]="true">
+            <i class="bi bi-save" style="padding-right: 10px;"></i>ลงทะเบียน
+          </dx-button>&nbsp;
+          <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview" icon="remove">
+
+          </dx-button>
         </div>
       </div>
     </form>
