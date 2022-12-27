@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  name!: string;
-  lastname!:string ;
-  constructor(private route: ActivatedRoute) {}
+  name: any;
+  lastname :any ;
+  constructor(private route: ActivatedRoute,private router:Router) {}
 
   todayNumber: number = Date.now();
   todayDate : Date = new Date();
@@ -17,10 +17,17 @@ export class NavbarComponent implements OnInit {
   todayISOString : string = new Date().toISOString();
 
   ngOnInit(): void {
-    this.name = this.route.snapshot.params['name'];
-    this.lastname = this.route.snapshot.params['lastname'];
-    console.log(this.name,this.lastname);
+    const name = sessionStorage.getItem('name');
+    const lname = sessionStorage.getItem('lname');
+    this.name = name;
+    this.lastname = lname;
+    console.log(name);
     }
 
+    logout(){
+      const confirm = 
+      sessionStorage.clear();
+      this.router.navigate(["/login"]);
 
+    }
 }

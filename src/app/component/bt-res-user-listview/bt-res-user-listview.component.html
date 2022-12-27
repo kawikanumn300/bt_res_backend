@@ -59,7 +59,7 @@
     </dxi-column>
     <dxi-column alignment="center" caption="เบอร์โทร" dataField="USER_PHONE_NUMBER" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="120">
+    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="120" [calculateDisplayValue]="GetStatus">
     </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
 
