@@ -44,7 +44,7 @@ export class BtResNameListComponent implements OnInit{
   }
 
   async deletedata(event:any, d:any){
-    this.id_delete= d.data.USER_ID;
+    this.id_delete= d.data.RES_ID;
     const confirm = await Dialogue.Confirm("ยืนยัน",
             `คุณต้องการลบข้อมูลนี้หรือไม่?`);
         if (!confirm) {
@@ -60,14 +60,23 @@ export class BtResNameListComponent implements OnInit{
                 { text: "ปิด" }
             ]
         }).show().then(() => {
-          this.data.reload();
+          window.location.reload();
           }
         )})
-    console.log(d.data.USER_ID);
+    console.log(d.data.RES_ID);
   }
 
   editdata(event:any,d:any){
-    this.id_edit = d.data.USER_ID;
+    this.id_edit = d.data.RES_ID;
     this.router.navigate(['/resname-detailview',{id:this.id_edit}]);
   }
+
+  GetStatus(Status: Value) {
+    let data1;
+    if (Status.RES_STATUS === "O") {
+      data1 = "เปิด";
+    } else if (Status.RES_STATUS === "C") { data1 = "ปิด"; }
+    return data1;
+  }
+
 }

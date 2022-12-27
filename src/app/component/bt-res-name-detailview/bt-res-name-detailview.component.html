@@ -11,7 +11,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ชื่อร้านอาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="username" [readOnly]="read">
+            <dx-text-box [(value)]="resname" [readOnly]="read">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกชื่อร้านอาหาร"></dxi-validation-rule>
               </dx-validator>
@@ -35,7 +35,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ข้อมูลเพิ่มเติม</div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left" [(value)]="email">
+            <dx-text-box validationMessagePosition="left" [(value)]="detail">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกข้อมูลเพิ่มเติม"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"

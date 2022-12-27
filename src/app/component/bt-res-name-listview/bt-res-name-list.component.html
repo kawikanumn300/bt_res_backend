@@ -54,7 +54,7 @@
     </dxi-column>
     <dxi-column alignment="center" caption="เบอร์โทร ร้านอาหาร" dataField="RES_PHONE" [width]="200">
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ เปิด/ปิด" dataField="RES_STATUS" [width]="150">
+    <dxi-column alignment="center" caption="สถานะ เปิด/ปิด" dataField="RES_STATUS" [width]="150" [calculateDisplayValue]="GetStatus">
     </dxi-column>
     <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_DETAIL" [width]="360">
     </dxi-column>

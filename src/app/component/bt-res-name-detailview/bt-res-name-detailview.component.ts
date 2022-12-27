@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dialogue } from 'src/app/assete/dialog';
+import { BtResNameList, namelisturl } from 'src/app/service/BtResNameListService';
 import { baseUrl, BtResUser, Value } from 'src/app/service/BtResUserService';
 
 @Component({
@@ -15,20 +16,13 @@ export class BtResNameDetailviewComponent implements OnInit {
   title = "";
   head = "";
   id: any;
-  username = "";
-  password = "";
-  confirmpassword = "";
-  firstname = "";
-  lastname = "";
-  usestatus = "";
+  resname = "";
   phone = "";
-  email = "";
+  detail = "";
   statusrecord = "";
   data: any;
-  
-  status = [
-    "ใช้งาน", "ไม่ใช้งาน"
-  ];
+  usestatus ="";
+
   opentime = [
     "เปิดร้าน", "ปิดร้าน"
   ];
@@ -39,58 +33,35 @@ export class BtResNameDetailviewComponent implements OnInit {
     if (!this.id) {
       this.title = "เพิ่มข้อมูลร้านอาหาร";
       this.head = "เพิ่มข้อมูลร้านอาหาร";
-      this.username = "";
-      this.password = "";
-      this.confirmpassword = "";
-      this.firstname = "";
-      this.lastname = "";
-      this.usestatus = "";
+      this.resname = "";
       this.phone = "";
-      this.email = "";
+      this.detail = "";
       this.statusrecord = "";
       this.read= false;
     } else {
       console.log(this.id);
       this.title = "แก้ใขข้อมูลร้านอาหาร";
       this.head = "แก้ใขข้อมูลร้านอาหาร";
-      this.http.get<BtResUser>(baseUrl + '/' + this.id).subscribe(response => {
+      this.http.get<BtResNameList>(namelisturl + '/' + this.id).subscribe(response => {
         this.data = response;
-        console.log(this.data.Value.USER_USERNAME);
-        this.username = this.data.Value.USER_USERNAME;
-        this.password = this.data.Value.USER_PASSWORD;
-        this.confirmpassword = this.data.Value.USER_PASSWORD;
-        this.firstname = this.data.Value.USER_NAME;
-        this.lastname = this.data.Value.USER_LASTNAME;
-        this.usestatus = this.data.Value.USER_STATUS;
-        this.phone = this.data.Value.USER_PHONE_NUMBER;
-        this.email = this.data.Value.USER_EMAIL;
+        console.log(this.data.Value.RES_NAME);
+        this.resname = this.data.Value.RES_NAME;
+        this.phone = this.data.Value.RES_PHONE;
+        this.detail = this.data.Value.RES_DETAIL;
         this.statusrecord = "";
       });
 
     }
   }
 
-
-
-
-
-
-  checkPasswordMatch() {
-    return this.password === this.confirmpassword;
-  }
-
   async Submit() {
 
     const data1 = {
-      USER_USERNAME: this.username,
-      USER_PASSWORD: this.password,
-      USER_NAME: this.firstname,
-      USER_LASTNAME: this.lastname,
+      RES_NAME: this.resname,
       RECORD_STATUS: "A",
-      USER_PHONE_NUMBER: this.phone,
-      USER_EMAIL: this.email,
-      //USER_RIGHTS: "U",
-      USER_STATUS: this.usestatus
+      RES_PHONE: this.phone,
+      RES_DETAIL: this.detail,
+      RES_STATUS: this.usestatus
     };
     // const formData = new FormData();
     // formData.append('USER_USERNAME', this.username);
@@ -103,10 +74,9 @@ export class BtResNameDetailviewComponent implements OnInit {
     // formData.append('USER_RIGHTS', "U");
     console.log(data1);
     if (!this.id) {
-
-      this.http.post(baseUrl, data1).subscribe(response => {
+      this.http.post(namelisturl, data1).subscribe(response => {
         console.log(response);
-        this.router.navigate(['/user-listview'])
+        this.router.navigate(['/resname-list'])
       },
         error => {
           console.error(error);
@@ -118,9 +88,9 @@ export class BtResNameDetailviewComponent implements OnInit {
       if (!confirm) {
         return;
       }else{
-        this.http.put(baseUrl + '/' + this.id, data1).subscribe(response => {
+        this.http.put(namelisturl + '/' + this.id, data1).subscribe(response => {
         console.log(response);
-        this.router.navigate(['/user-listview'])
+        this.router.navigate(['/resname-list'])
       },
         error => {
           console.error(error);
@@ -129,20 +99,13 @@ export class BtResNameDetailviewComponent implements OnInit {
       }
 
     }
-
   }
-
-  passwordComparison = () => this.password;
-  checkComparison() {
-    return true;
-  }
-
   statuschange() {
-    if (this.statusrecord == "ใช้งาน") {
-      this.usestatus = "A"
+    if (this.statusrecord == "เปิดร้าน") {
+      this.usestatus = "O"
       console.log(this.usestatus);
     } else {
-      this.usestatus = "I"
+      this.usestatus = "C"
       console.log(this.usestatus);
     }
   }
