@@ -11,7 +11,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ชื่อผู้ใช้</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="username">
+            <dx-text-box [(value)]="username" [readOnly]="read">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
               </dx-validator>
@@ -112,16 +112,13 @@
               </dx-select-box>
             </div>
           </div>
-        </div>
-        <div class="dx-fieldset">
-          <dx-validation-summary id="summary"></dx-validation-summary>
-          <div class="row" style="align-items: center;">
-            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>    
+
+        <div class="row-btn">
             <dx-button width="50%" id="buttonsummit" text="ลงทะเบียน" type="submit" [useSubmitBehavior]="true">
-            </dx-button>&nbsp;&nbsp;
-            <dx-button width="45%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview">
+            </dx-button>&nbsp;
+            <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview">
             </dx-button>
-          </div>
         </div>
       </div>
     </form>

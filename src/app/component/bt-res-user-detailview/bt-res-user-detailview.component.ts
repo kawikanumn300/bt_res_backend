@@ -30,6 +30,8 @@ export class BtResUserDetailviewComponent implements OnInit {
   status = [
     "ใช้งาน", "ไม่ใช้งาน"
   ];
+  read : boolean = true;
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
@@ -44,6 +46,7 @@ export class BtResUserDetailviewComponent implements OnInit {
       this.phone = "";
       this.email = "";
       this.statusrecord = "";
+      this.read= false;
     } else {
       console.log(this.id);
       this.title = "แก้ใขข้อมูลผู้ใช้งาน";
