@@ -1,10 +1,9 @@
-<app-navbar> </app-navbar>
+<app-navbar></app-navbar>
 
 <div class="container">
   <div class="bw-nav">
-    <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลผู้ใช้งาน > ข้อมูลผู้ใช้งาน</div>
+    <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลรายการอาหาร</div>
   </div>
-
   <div class="dx-datagrid-header-panel">
     <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection" role="toolbar">
       <div class="dx-toolbar-items-container">
@@ -34,7 +33,7 @@
             <div class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
               <dx-button icon="add" type="success" requirepermission="ADD" text=" เพิ่ม"
                 class="dx-btn-add dx-button dx-button-success dx-button-mode-contained dx-widget dx-button-has-icon dx-button-has-text"
-                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/user-detailview">
+                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/food-detail">
                 <div class="dx-button-content"><i class="dx-icon dx-icon-add"></i><span class="dx-button-text">
                     เพิ่ม</span></div>
               </dx-button><!---->
@@ -44,40 +43,40 @@
       </div>
     </div>
   </div>
-
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID" [showBorders]="true">
-    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
+  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="FOOD_ID"
+    [showBorders]="true">
+    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="FOOD_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="230">
+    <dxi-column caption="รหัสร้านอาหาร" [width]="130" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
+      alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อจริง" dataField="USER_NAME" [width]="200">
+    <dxi-column alignment="center" caption="ชื่ออาหาร" dataField="FOOD_NAME" [width]="130">
     </dxi-column>
-    <dxi-column alignment="center" caption="นามสกุล" dataField="USER_LASTNAME" [width]="200">
+    <dxi-column alignment="center" caption="ราคา" dataField="FOOD_PRICE" [width]="50">
     </dxi-column>
-    <dxi-column alignment="center" caption="เบอร์โทร" dataField="USER_PHONE_NUMBER" [width]="200">
+    <dxi-column alignment="center" caption="ราคาปกติ" dataField="FOOD_NORMAL" [width]="80">
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="110"
+    <dxi-column alignment="center" caption="ราคาพิเศษ" dataField="FOOD_SPECIAL" [width]="80">
+    </dxi-column>
+    <dxi-column alignment="center" caption="Option" dataField="FOOD_OPTION" [width]="80">
+    </dxi-column>
+      <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="80"
       [calculateDisplayValue]="GetStatus">
     </dxi-column>
-    <dxi-column alignment="center" caption="สิทธิ์การเข้าใช้งาน" dataField="USER_RIGHTS" [width]="120"
-      [calculateDisplayValue]="GetStatus">
+    <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="FOOD_NOTE" [width]="200">
     </dxi-column>
-    <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="70">
-
+    <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
         <img src="assets/img/edit.png" width="25px" (click)="editdata($event, d)">
       </div>
     </dxi-column>
-    <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="70">
-
+    <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'delete'">
-        <div *ngIf="d.data.USER_RIGHTS !=='A'; ">
-          <img
-            src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
-            width="25px" (click)="deletedata($event, d)" >
-        </div>
+        <img
+          src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
+          width="25px" (click)="deletedata($event, d)">
       </div>
     </dxi-column>
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
@@ -90,6 +89,4 @@
     <dx-button id="btn-exit" text="หน้าหลัก" type="danger" routerLink="/mainmenu" icon="home">
     </dx-button>
   </div>
-
-
 </div>

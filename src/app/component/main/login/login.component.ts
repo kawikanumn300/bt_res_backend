@@ -1,4 +1,4 @@
-import { baseUrl } from './../../service/BtResUserService';
+import { baseUrl } from '../../../service/BtResUserService';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

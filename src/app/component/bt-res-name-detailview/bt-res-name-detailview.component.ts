@@ -63,18 +63,21 @@ export class BtResNameDetailviewComponent implements OnInit {
       RES_DETAIL: this.detail,
       RES_STATUS: this.usestatus
     };
-    // const formData = new FormData();
-    // formData.append('USER_USERNAME', this.username);
-    // formData.append('USER_PASSWORD', this.password);
-    // formData.append('USER_NAME', this.firstname);
-    // formData.append('USER_LASTNAME', this.lastname);
-    // formData.append('RECORD_STATUS', this.recordstatus);
+    const formData = new FormData();
+    formData.append('RES_NAME', this.resname);
+    formData.append('RECORD_STATUS', "A");
+    formData.append('RES_PHONE', this.phone);
+    formData.append('RES_DETAIL', this.detail);
+    formData.append('RES_STATUS', this.usestatus);
     // formData.append('USER_PHONE_NUMBER', this.phone);
     // formData.append('USER_EMAIL', this.email);
     // formData.append('USER_RIGHTS', "U");
     console.log(data1);
     if (!this.id) {
-      this.http.post(namelisturl, data1).subscribe(response => {
+const headers = new HttpHeaders();
+  headers.append('Content-Type', 'multipart/form-data');
+
+      this.http.post(namelisturl, formData,{headers}).subscribe(response => {
         console.log(response);
         this.router.navigate(['/resname-list'])
       },

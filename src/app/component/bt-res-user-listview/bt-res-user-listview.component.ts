@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
 
@@ -15,10 +16,11 @@ import DataSource from 'devextreme/data/data_source';
   styleUrls: ['./bt-res-user-listview.component.scss']
 })
 export class BtResUserListviewComponent implements OnInit {
-  data!: DataSource;
+  data: any;
   id_delete: any;
   id_edit: any;
   status = "";
+  ishidden = false;
   constructor(private http: HttpClient, private router: Router) {
 
 
@@ -39,10 +41,14 @@ export class BtResUserListviewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get<any>(baseUrl).subscribe(response => {
+    this.http.get<BtResUser>(baseUrl).subscribe(response => {
       this.data = response.Value;
       console.log(this.data);
 
+      if (this.data.USER_RIGHTS === "U") {
+        this.ishidden = true;
+
+      }
     });
   }
   GetStatus(Status: Value) {
@@ -61,21 +67,21 @@ export class BtResUserListviewComponent implements OnInit {
       return;
     }
     this.http.delete(baseUrl + "/" + this.id_delete)
-    .subscribe(
-      _ => {
-        custom({
-          messageHtml: "ลบข้อมูลเรียบร้อย",
-          title: "สำเร็จ",
-          buttons: [
-            {
-              text: "ปิด",
+      .subscribe(
+        _ => {
+          custom({
+            messageHtml: "ลบข้อมูลเรียบร้อย",
+            title: "สำเร็จ",
+            buttons: [
+              {
+                text: "ปิด",
 
-            }
-          ]
-        }).show().then(() => {
-          window.location.reload();
+              }
+            ]
+          }).show().then(() => {
+            window.location.reload();
+          });
         });
-      });
 
     console.log(d.data.USER_ID);
   }
@@ -84,7 +90,9 @@ export class BtResUserListviewComponent implements OnInit {
     this.id_edit = d.data.USER_ID;
     this.router.navigate(['/user-detailview', { id: this.id_edit }]);
   }
-reload(){
-  window.location.reload();
-}
+  reload() {
+    window.location.reload();
+  }
+
+
 }

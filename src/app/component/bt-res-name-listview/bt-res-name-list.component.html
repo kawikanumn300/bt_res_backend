@@ -46,7 +46,7 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID" [showBorders]="true">
+  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID" [showBorders]="true">
     <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
       alignment="center">
     </dxi-column>
