@@ -1,6 +1,4 @@
-import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
 import { BtResFoodListviewComponent } from './component/bt-res-food-listview/bt-res-food-listview.component';
-
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/main/login/login.component';
@@ -11,6 +9,7 @@ import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-
 import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
 import { BtResNameListComponent } from './component/bt-res-name-listview/bt-res-name-list.component';
 import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview/bt-res-name-detailview.component';
+import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
 
 
 

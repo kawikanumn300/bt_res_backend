@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { custom } from 'devextreme/ui/dialog';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -33,9 +34,9 @@ export class LoginComponent {
         this.lastname = this.value[5][1];
         console.log(this.name);
         console.log(this.lastname);
-        if (this.value[5][2] == "A") {
+        if (this.value[5][2] == "A") { 
           await custom({
-            messageHtml: "ยินดีต้อนรับ",
+            messageHtml: "ยินดีต้อนรับเข้าสู่ระบบ",
             title: "สำเร็จ",
             buttons: [
               {
