@@ -4,48 +4,12 @@
   <div class="bw-nav">
     <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลรายการอาหาร</div>
   </div>
-  <div class="dx-datagrid-header-panel">
-    <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection" role="toolbar">
-      <div class="dx-toolbar-items-container">
-        <div class="dx-toolbar-before">
-          <div class="dx-item dx-toolbar-item dx-toolbar-button">
-            <div class="dx-item-content dx-toolbar-item-content">
-              <div
-                class="dx-datagrid-search-panel dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-searchbox dx-show-clear-button dx-texteditor-empty dx-widget"
-                style="width: 240px;">
-                <div class="dx-texteditor-container">
-                  <div class="dx-texteditor-input-container">
-                    <div class="dx-icon dx-icon-search"></div><input autocomplete="off" aria-label="Search in data grid"
-                      class="dx-texteditor-input" type="text" spellcheck="false" tabindex="0" role="textbox"
-                      placeholder="ค้นหา...">
-                    <div class="dx-placeholder"></div>
-                  </div>
-                  <div class="dx-texteditor-buttons-container"><span class="dx-clear-button-area"><span
-                        class="dx-icon dx-icon-clear"></span></span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="dx-toolbar-center" style="margin: 0px 107.078px 0px 270px; float: none;"></div>
-        <div class="dx-toolbar-after">
-          <div class="dx-item dx-toolbar-item dx-toolbar-button">
-            <div class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
-              <dx-button icon="add" type="success" requirepermission="ADD" text=" เพิ่ม"
-                class="dx-btn-add dx-button dx-button-success dx-button-mode-contained dx-widget dx-button-has-icon dx-button-has-text"
-                aria-label=" เพิ่ม" tabindex="0" role="button" routerLink="/food-detail">
-                <div class="dx-button-content"><i class="dx-icon dx-icon-add"></i><span class="dx-button-text">
-                    เพิ่ม</span></div>
-              </dx-button><!---->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <!--btn-class  -->
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="FOOD_ID"
-    [showBorders]="true">
+    [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="FOOD_ID"
       alignment="center">
     </dxi-column>
@@ -84,6 +48,11 @@
     <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
       [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
     </dxo-pager>
+    <div *dxTemplate="let t of 'btnAdd'">
+      <dx-button icon="add" type="success" requirePermission="ADD" text=" เพิ่ม" class="dx-btn-add"
+        routerLink="/food-detail">
+      </dx-button>
+    </div>
   </dx-data-grid>
   <div style="padding-top: 20px;">
     <dx-button id="btn-exit" text="หน้าหลัก" type="danger" routerLink="/mainmenu" icon="home">

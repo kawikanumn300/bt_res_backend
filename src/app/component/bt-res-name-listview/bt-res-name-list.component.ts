@@ -85,5 +85,16 @@ export class BtResNameListComponent implements OnInit{
     } else if (Status.RES_STATUS === "C") { data1 = "ปิด"; }
     return data1;
   }
+  OnToolbarPrePreparing(e:any) {
+    if (e.toolbarOptions.items.length > 0) {
+        e.toolbarOptions.items[0].location = "before";
+    }
+    e.toolbarOptions.items.unshift(
+      {
+          template: "btnAdd",
+          location: "after"
+      }
+  );
 
+}
 }

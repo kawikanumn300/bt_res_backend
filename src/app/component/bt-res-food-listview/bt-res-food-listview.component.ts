@@ -86,5 +86,15 @@ export class BtResFoodListviewComponent implements OnInit{
     } else if (Status.USER_STATUS === "I") { data1 = "หมด"; }
     return data1;
   }
+  OnToolbarPrePreparing(e:any) {
+    if (e.toolbarOptions.items.length > 0) {
+        e.toolbarOptions.items[0].location = "before";
+    }e.toolbarOptions.items.unshift(
+      {
+          template: "btnAdd",
+          location: "after"
+      }
+  );
 
+}
 }

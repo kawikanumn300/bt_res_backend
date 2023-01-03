@@ -60,7 +60,7 @@ export class BtResUserDetailviewComponent implements OnInit {
         this.usestatus = this.data.Value.USER_STATUS;
         this.phone = this.data.Value.USER_PHONE_NUMBER;
         this.email = this.data.Value.USER_EMAIL;
-        this.statusrecord = "";
+        this.statusrecord = this.data.Value.USER_RIGHTS;
       });
 
     }

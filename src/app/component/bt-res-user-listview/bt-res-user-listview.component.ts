@@ -58,6 +58,13 @@ export class BtResUserListviewComponent implements OnInit {
     } else if (Status.USER_STATUS === "I") { data1 = "ไม่ใช้งาน"; }
     return data1;
   }
+  GetRights(Status: Value) {
+    let data;
+    if (Status.USER_RIGHTS === "A") {
+      data = "ผู้ดูแลระบบ";
+    } else if (Status.USER_RIGHTS === "U") { data = "ผู้ใช้ทั่วไป"; }
+    return data;
+  }
 
   async deletedata(event: any, d: any) {
     this.id_delete = d.data.USER_ID;
@@ -93,6 +100,16 @@ export class BtResUserListviewComponent implements OnInit {
   reload() {
     window.location.reload();
   }
+  OnToolbarPrePreparing(e:any) {
+    if (e.toolbarOptions.items.length > 0) {
+        e.toolbarOptions.items[0].location = "before";
+    }e.toolbarOptions.items.unshift(
+      {
+          template: "btnAdd",
+          location: "after"
+      }
+  );
 
+}
 
 }

@@ -5,6 +5,7 @@ import {
   DxButtonModule,
   DxCheckBoxModule,
   DxDateBoxModule,
+  DxListModule,
   DxLoadIndicatorModule,
   DxLoadPanelModule,
   DxSelectBoxModule,
@@ -81,6 +82,7 @@ const icons = {
     FormsModule,
     DxLoadPanelModule,
     DxLoadIndicatorModule,
+    DxListModule,
 
   ],
   providers: [],
