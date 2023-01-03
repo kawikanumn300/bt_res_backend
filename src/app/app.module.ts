@@ -59,6 +59,7 @@ const icons = {
     BtResNameDetailviewComponent,
     BtResFoodListviewComponent,
     BtResFoodDetailviewComponent,
+    
 
   ],
   imports: [

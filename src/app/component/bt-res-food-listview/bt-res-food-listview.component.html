@@ -49,23 +49,23 @@
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="FOOD_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column caption="รหัสร้านอาหาร" [width]="130" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
+    <dxi-column caption="รหัสร้านอาหาร" [width]="150" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่ออาหาร" dataField="FOOD_NAME" [width]="130">
+    <dxi-column alignment="center" caption="ชื่ออาหาร" dataField="FOOD_NAME" [width]="250">
     </dxi-column>
-    <dxi-column alignment="center" caption="ราคา" dataField="FOOD_PRICE" [width]="50">
+    <!-- <dxi-column alignment="center" caption="ราคา" dataField="FOOD_PRICE" [width]="90">
+    </dxi-column> -->
+    <dxi-column alignment="center" caption="ราคาปกติ" dataField="FOOD_NORMAL" [width]="110">
     </dxi-column>
-    <dxi-column alignment="center" caption="ราคาปกติ" dataField="FOOD_NORMAL" [width]="80">
+    <dxi-column alignment="center" caption="ราคาพิเศษ" dataField="FOOD_SPECIAL" [width]="110">
     </dxi-column>
-    <dxi-column alignment="center" caption="ราคาพิเศษ" dataField="FOOD_SPECIAL" [width]="80">
-    </dxi-column>
-    <dxi-column alignment="center" caption="Option" dataField="FOOD_OPTION" [width]="80">
-    </dxi-column>
-      <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="80"
+    <!-- <dxi-column alignment="center" caption="Option" dataField="FOOD_OPTION" [width]="90">
+    </dxi-column> -->
+      <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="110"
       [calculateDisplayValue]="GetStatus">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="FOOD_NOTE" [width]="200">
+    <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="FOOD_NOTE" [width]="310">
     </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
