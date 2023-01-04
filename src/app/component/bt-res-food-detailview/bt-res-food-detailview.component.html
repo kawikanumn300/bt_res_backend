@@ -62,11 +62,19 @@
           <div class="dx-field">
             <div class="dx-field-label">สถานะอาหาร</div>
             <div class="dx-field-value">
+              <dx-radio-group
+                [items]="priorities"
+                [value]="priorities[1]"
+                layout="horizontal"
+              >
+              </dx-radio-group>
+            <!-- <div class="dx-field-label">สถานะอาหาร</div>
+            <div class="dx-field-value">
               <dx-select-box [dataSource]="opentime" validationMessagePosition="left" (onValueChanged)="statuschange()"
                 [(value)]="statusrecord">
                 <dx-validator>
                 </dx-validator>
-              </dx-select-box>
+              </dx-select-box> -->
             </div>
           </div>
         </div>

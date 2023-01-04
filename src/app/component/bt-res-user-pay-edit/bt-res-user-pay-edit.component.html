@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="padding-top: 1%;">
+  <div class="bw-nav">
+    <div class="cm-title-pages" style="font-weight:bold;"> {{title}}</div>
+  </div>
+  <div class="card">
+    <form action="your-action" (ngSubmit)="Submit()">
+      <div class="dx-fieldset">
+        <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
+        <div class="dx-field">
+          <div class="dx-field-label">ชื่อผู้ใช้</div>
+          <div class="dx-field-value">
+            <dx-text-box [(value)]="username" [readOnly]="read">
+              <dx-validator>
+                <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+              </dx-validator>
+            </dx-text-box>
+          </div>
+        </div>
+      </div>
+      <div class="dx-fieldset">
+        <div class="dx-field">
+          <div class="dx-field-label">ยอดค้างชำระ</div>
+          <div class="dx-field-value">
+            <dx-text-box [(value)]="firstname">
+              <dx-validator>
+                <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="2"
+                  message="Name must have at least 2 symbols"></dxi-validation-rule>
+              </dx-validator>
+            </dx-text-box>
+          </div>
+        </div>
+        
+        <div class="dx-field">
+          <div class="dx-field">
+            <div class="dx-field-label">สถานะการจ่ายเงิน</div>
+            <div class="dx-field-value">
+              <dx-radio-group
+                [items]="priorities"
+                [value]="priorities[1]"
+                layout="horizontal"
+                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
+                [(value)]="statusrecord">
+              >
+              </dx-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="row-btn">
+          <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
+            [useSubmitBehavior]="true">
+            <i class="bi bi-save" style="padding-right: 10px;"></i>ยืนยันข้อมูล
+          </dx-button>&nbsp;
+          <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/bt-user-bill" icon="remove">
+          </dx-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

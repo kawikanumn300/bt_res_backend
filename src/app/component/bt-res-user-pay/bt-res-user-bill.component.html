@@ -2,10 +2,8 @@
 
 <div class="container">
   <div class="bw-nav">
-    <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลร้านอาหาร</div>
+    <div class="cm-title-pages" style="font-weight:bold;">ตรวจสอบสถานะการชำระเงิน</div>
   </div>
-
-
 
   <!--btn-class  -->
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID"
@@ -15,16 +13,20 @@
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_NAME" [width]="290">
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="RES_NAME" [width]="250">
     </dxi-column>
-    <dxi-column alignment="center" caption="เบอร์โทร ร้านอาหาร" dataField="RES_PHONE" [width]="200">
+    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="RES_PHONE" [width]="150">
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะ เปิด/ปิด" dataField="RES_STATUS" [width]="150"
+    <dxi-column alignment="center" caption="สถานะการจ่ายเงิน" dataField="RES_STATUS" [width]="150"
       [calculateDisplayValue]="GetStatus">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_DETAIL" [width]="400">
+    <dxi-column alignment="center" caption="วันที่ชำระ" dataField="RES_PHONE" [width]="300">
     </dxi-column>
-    
+    <dxi-column caption="รูปภาพการชำระเงิน" cellTemplate="pay" alignment="center" [width]="200">
+      <div class="pointer" *dxTemplate="let d of 'pay'">
+        <img src="assets/img/paylist.png" width="31px" (click)="editimage($event, d)">
+      </div>
+    </dxi-column>
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
         <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
@@ -41,12 +43,6 @@
     <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
       [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
     </dxo-pager>
-
-    <div *dxTemplate="let t of 'btnAdd'">
-      <dx-button icon="add" type="success" requirePermission="ADD" text=" เพิ่ม" class="dx-btn-add"
-        routerLink="/resname-detailview">
-      </dx-button>
-    </div>
   </dx-data-grid>
   <div style="padding-top: 20px;">
     <dx-button id="btn-exit" text="หน้าหลัก" type="danger" routerLink="/mainmenu" icon="home">

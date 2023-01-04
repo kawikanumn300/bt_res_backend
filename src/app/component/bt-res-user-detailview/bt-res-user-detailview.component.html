@@ -100,7 +100,7 @@
             </dx-text-box>
           </div>
         </div>
-        <div class="dx-field">
+        <!-- <div class="dx-field">
           <div class="dx-field">
             <div class="dx-field-label">สถานะการใช้งาน</div>
             <div class="dx-field-value">
@@ -112,20 +112,36 @@
               </dx-select-box>
             </div>
           </div>
-        </div>
+        </div>    -->
         <div class="dx-field">
+          <div class="dx-fieldset-header" style="font-weight:bold;">สิทธิการใช้งาน</div>
+          <div class="dx-field">
+            <div class="dx-field-label">สถานะการใช้งาน</div>
+            <div class="dx-field-value">
+              <dx-radio-group
+                [items]="priorities"
+                [value]="priorities[1]"
+                layout="horizontal"
+                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
+                [(value)]="statusrecord">
+              >
+              </dx-radio-group>
+            </div>
+          </div>
           <div class="dx-field">
             <div class="dx-field-label">สิทธิผู้ใช้งาน</div>
             <div class="dx-field-value">
-              <dx-select-box>
-                <dx-validator>
-
-                </dx-validator>
-              </dx-select-box>
+              <dx-radio-group
+                [items]="priorities"
+                [value]="priorities[1]"
+                layout="horizontal"
+                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
+                [(value)]="statusrecord">
+              >
+              </dx-radio-group>
             </div>
           </div>
         </div>
-
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">

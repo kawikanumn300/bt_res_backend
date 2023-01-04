@@ -26,23 +26,23 @@
     </dxi-column>
     <!-- <dxi-column alignment="center" caption="Option" dataField="FOOD_OPTION" [width]="90">
     </dxi-column> -->
-      <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="110"
+    <dxi-column alignment="center" caption="สถานะ" dataField="USER_STATUS" [width]="110"
       [calculateDisplayValue]="GetStatus">
     </dxi-column>
     <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="FOOD_NOTE" [width]="310">
     </dxi-column>
+
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
-        <img src="assets/img/edit.png" width="25px" (click)="editdata($event, d)">
+        <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
       </div>
     </dxi-column>
     <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'delete'">
-        <img
-          src="https://media.istockphoto.com/vectors/bin-icon-flat-red-round-button-vector-illustration-vector-id1162428585?k=20&m=1162428585&s=170667a&w=0&h=NLRV5LS9x5zwqHbB8VtLVSs_0vJTKzKkw-kJEgeV9Mo="
-          width="25px" (click)="deletedata($event, d)">
+        <img src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
       </div>
-    </dxi-column>
+    </dxi-column> 
+
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
     <dxo-paging [pageSize]="10"> </dxo-paging>
     <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"

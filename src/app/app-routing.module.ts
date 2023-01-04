@@ -10,6 +10,9 @@ import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user
 import { BtResNameListComponent } from './component/bt-res-name-listview/bt-res-name-list.component';
 import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview/bt-res-name-detailview.component';
 import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
+import { BTRESUSERBILLComponent } from './component/bt-res-user-pay/bt-res-user-bill.component';
+import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
+import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
 
 
 
@@ -50,13 +53,27 @@ const routes: Routes = [
   {
     path: 'user-edit',
     component: BtResUserEditComponent
-  }, {
+  },
+  {
     path: 'food-list',
     component: BtResFoodListviewComponent
-  }, {
+  },
+  {
     path: 'food-detail',
     component: BtResFoodDetailviewComponent
-  }
+  },
+  {
+    path: 'bt-user-bill',
+    component: BTRESUSERBILLComponent
+  },
+  {
+    path: 'bt-pay-edit',
+    component: BtResUserPayEditComponent
+  },
+  {
+    path:'bt-pay-image',
+    component: BtResUserPayImageComponent
+  },
 
 
 ];

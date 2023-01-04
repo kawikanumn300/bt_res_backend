@@ -5,11 +5,11 @@ import { Dialogue } from 'src/app/assete/dialog';
 import { baseUrl, BtResUser, Value } from 'src/app/service/BtResUserService';
 
 @Component({
-  selector: 'user-detailview',
-  templateUrl: './bt-res-user-detailview.component.html',
-  styleUrls: ['./bt-res-user-detailview.component.scss']
+  selector: 'app-bt-res-user-pay-edit',
+  templateUrl: './bt-res-user-pay-edit.component.html',
+  styleUrls: ['./bt-res-user-pay-edit.component.scss']
 })
-export class BtResUserDetailviewComponent implements OnInit {
+export class BtResUserPayEditComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
   title = "";
@@ -27,15 +27,15 @@ export class BtResUserDetailviewComponent implements OnInit {
   data: any;
   priorities = ['ใช้งาน','ไม่ใช้งาน',];
   status = [
-    "ใช้งาน", "ไม่ใช้งาน"
+    'ชำระเรียบร้อย','ยังไม่ได้ชำระ'
   ];
   read : boolean = true;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
-      this.title = "ลงทะเบียนผู้ใช้งาน";
-      this.head = "ลงทะเบียนผู้ใช้งาน";
+      // this.title = "สถานะการชำระเงิน";
+      // this.head = "สถานะการชำระเงิน";
       this.username = "";
       this.password = "";
       this.confirmpassword = "";
@@ -48,8 +48,8 @@ export class BtResUserDetailviewComponent implements OnInit {
       this.read= false;
     } else {
       console.log(this.id);
-      this.title = "แก้ใขข้อมูลผู้ใช้งาน";
-      this.head = "แก้ใขข้อมูลผู้ใช้งาน";
+      this.title = "แก้ไขสถานะการชำระเงิน";
+      this.head = "ข้อมูลการชำระเงิน";
       this.http.get<BtResUser>(baseUrl + '/' + this.id).subscribe(response => {
         this.data = response;
         console.log(this.data.Value.USER_USERNAME);
@@ -66,18 +66,10 @@ export class BtResUserDetailviewComponent implements OnInit {
 
     }
   }
-
-
-
-
-
-
   checkPasswordMatch() {
     return this.password === this.confirmpassword;
   }
-
   async Submit() {
-
     const data1 = {
       USER_USERNAME: this.username,
       USER_PASSWORD: this.password,
@@ -143,5 +135,6 @@ export class BtResUserDetailviewComponent implements OnInit {
       console.log(this.usestatus);
     }
   }
+  
 }
 
