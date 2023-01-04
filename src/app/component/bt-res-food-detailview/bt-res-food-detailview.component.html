@@ -13,10 +13,7 @@
             <div class="dx-field-label">รายชื่อร้านอาหาร</div>
             <div class="dx-field-value">
               <dx-select-box [dataSource]="resnameselect" validationMessagePosition="left"
-                (onValueChanged)="onSelectionChanged($event)"
-                displayExpr="RES_NAME"
-                valueExpr="RES_ID"
-               >
+                (onValueChanged)="onSelectionChanged($event)" displayExpr="RES_NAME" valueExpr="RES_ID">
 
               </dx-select-box>
             </div>
@@ -25,7 +22,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ชื่ออาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="foodname" >
+            <dx-text-box [(value)]="foodname">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกชื่ออาหาร"></dxi-validation-rule>
               </dx-validator>
@@ -64,13 +61,11 @@
           <div class="dx-field">
             <div class="dx-field-label">สถานะอาหาร</div>
             <div class="dx-field-value">
-              <dx-radio-group
-                [items]="priorities"
-                [value]="priorities[1]"
-                layout="horizontal"
+              <dx-radio-group [items]="priorities" [(value)]="statusrecord" layout="horizontal"
+              (onValueChanged)="statuschange()"
               >
               </dx-radio-group>
-            <!-- <div class="dx-field-label">สถานะอาหาร</div>
+              <!-- <div class="dx-field-label">สถานะอาหาร</div>
             <div class="dx-field-value">
               <dx-select-box [dataSource]="opentime" validationMessagePosition="left" (onValueChanged)="statuschange()"
                 [(value)]="statusrecord">

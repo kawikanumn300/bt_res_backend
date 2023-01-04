@@ -28,9 +28,10 @@ export class BtResFoodDetailviewComponent implements OnInit {
   opentime = [
     "มี", "ไม่มี"
   ];
-
   resid = "";
-
+  priorities=[
+    "มี", "หมด"
+  ]
 
   resnameselect: any;
   namelist = [];

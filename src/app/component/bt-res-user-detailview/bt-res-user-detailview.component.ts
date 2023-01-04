@@ -25,9 +25,11 @@ export class BtResUserDetailviewComponent implements OnInit {
   email = "";
   statusrecord = "";
   data: any;
+  usestat="";
+  addusestat=""
   priorities = ['ใช้งาน','ไม่ใช้งาน',];
   status = [
-    "ใช้งาน", "ไม่ใช้งาน"
+    "ผู้ดูแลระบบ", "ผู้ใช้ทั่วไป"
   ];
   read : boolean = true;
 
@@ -86,7 +88,7 @@ export class BtResUserDetailviewComponent implements OnInit {
       RECORD_STATUS: "A",
       USER_PHONE_NUMBER: this.phone,
       USER_EMAIL: this.email,
-      //USER_RIGHTS: "U",
+      USER_RIGHTS: this.addusestat,
       USER_STATUS: this.usestatus
     };
     // const formData = new FormData();
@@ -141,6 +143,15 @@ export class BtResUserDetailviewComponent implements OnInit {
     } else {
       this.usestatus = "I"
       console.log(this.usestatus);
+    }
+  }
+  userchange() {
+    if (this.usestat == "ผู้ดูแลระบบ") {
+      this.addusestat = "A"
+      console.log(this.addusestat);
+    } else {
+      this.addusestat = "U"
+      console.log(this.addusestat);
     }
   }
 }

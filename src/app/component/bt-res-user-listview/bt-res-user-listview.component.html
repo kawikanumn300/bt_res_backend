@@ -32,9 +32,11 @@
       </div>
     </dxi-column>
     <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+
       <div class="pointer" *dxTemplate="let d of 'delete'">
-        <img
-          src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
+        <div *ngIf="d.data.USER_RIGHTS == 'U';">
+          <img src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
+        </div>
       </div>
     </dxi-column>
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>

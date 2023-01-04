@@ -2,7 +2,7 @@
 import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
 
-import { BtResUser, Value, baseUrl, Service } from '../../service/BtResUserService';
+import { BtResUser, Value, baseUrl, } from '../../service/BtResUserService';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DxMultiViewComponent } from 'devextreme-angular';
 import { HttpClient } from '@angular/common/http';

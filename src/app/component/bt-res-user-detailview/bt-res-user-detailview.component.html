@@ -120,10 +120,11 @@
             <div class="dx-field-value">
               <dx-radio-group
                 [items]="priorities"
-                [value]="priorities[1]"
                 layout="horizontal"
-                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
+                [(value)]="statusrecord"
+                 validationMessagePosition="left"
+                (onValueChanged)="statuschange()"
+                >
               >
               </dx-radio-group>
             </div>
@@ -132,11 +133,11 @@
             <div class="dx-field-label">สิทธิผู้ใช้งาน</div>
             <div class="dx-field-value">
               <dx-radio-group
-                [items]="priorities"
-                [value]="priorities[1]"
+                [items]="status"
                 layout="horizontal"
-                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
+                [(value)]="usestat"
+                validationMessagePosition="left" (onValueChanged)="userchange()"
+                >
               >
               </dx-radio-group>
             </div>
@@ -145,7 +146,7 @@
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">
-            <i class="bi bi-save" style="padding-right: 10px;"></i>ลงทะเบียน
+            <i class="bi bi-save" style="padding-right: 10px;"></i>บันทึกข้อมูล
           </dx-button>&nbsp;
           <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview" icon="remove">
 

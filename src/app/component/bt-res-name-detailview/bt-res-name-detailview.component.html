@@ -11,7 +11,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ชื่อร้านอาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="resname" [readOnly]="read">
+            <dx-text-box [(value)]="resname" >
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกชื่อร้านอาหาร"></dxi-validation-rule>
               </dx-validator>
@@ -45,14 +45,15 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-fieldset-header" style="font-weight:bold;">ปรับเวลาเปิดปิด</div>
+          <div class="dx-fieldset-header" style="font-weight:bold;">ปรับเวลา เปิด/ปิด</div>
           <div class="dx-field">
             <div class="dx-field-label">สถานะ เปิด/ปิด</div>
             <div class="dx-field-value">
               <dx-radio-group
                 [items]="priorities"
-                [value]="priorities[1]"
+                [(value)]="statusrecord"
                 layout="horizontal"
+                (onValueChanged)="statuschange()"
               >
               </dx-radio-group>
             </div>
