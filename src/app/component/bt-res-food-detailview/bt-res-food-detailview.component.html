@@ -12,10 +12,12 @@
           <div class="dx-field">
             <div class="dx-field-label">รายชื่อร้านอาหาร</div>
             <div class="dx-field-value">
-              <dx-select-box [dataSource]="opentime" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
-                <dx-validator>
-                </dx-validator>
+              <dx-select-box [dataSource]="resnameselect" validationMessagePosition="left"
+                (onValueChanged)="onSelectionChanged($event)"
+                displayExpr="RES_NAME"
+                valueExpr="RES_ID"
+               >
+
               </dx-select-box>
             </div>
           </div>
@@ -23,7 +25,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ชื่ออาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="resname" [readOnly]="read">
+            <dx-text-box [(value)]="foodname" >
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกชื่ออาหาร"></dxi-validation-rule>
               </dx-validator>
@@ -36,7 +38,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ธรรมดา</div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left" [(value)]="detail">
+            <dx-text-box validationMessagePosition="left" [(value)]="foodnormal">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกราคาอาหาร"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
@@ -48,7 +50,7 @@
         <div class="dx-field">
           <div class="dx-field-label">พิเศษ</div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left" [(value)]="detail">
+            <dx-text-box validationMessagePosition="left" [(value)]="foodspacial">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกราคาอาหาร"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
@@ -73,7 +75,7 @@
         <div class="dx-field">
           <div class="dx-field-label">รายละเอียดอาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left" [(value)]="detail">
+            <dx-text-box validationMessagePosition="left" [(value)]="fooddetail">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกรายละเอียดอาหาร"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"

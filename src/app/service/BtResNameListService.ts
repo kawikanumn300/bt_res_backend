@@ -1,6 +1,7 @@
 export const namelisturl = "https://utcc-prc.demotoday.net/bt-order-api/api/BtResNameList";
 
 export interface BtResNameList {
+
   IsSuccess: boolean;
   StatusCode: number;
   StatusCodeDecimal?: any;
@@ -10,6 +11,8 @@ export interface BtResNameList {
 }
 
 export interface Value {
+
+
   RES_ID: number;
   RES_NAME: string;
   RES_PHONE: string;
