@@ -22,6 +22,7 @@ export class BtResNameDetailviewComponent implements OnInit {
   statusrecord = "";
   data: any;
   usestatus ="";
+  priorities = ['เปิดร้าน','ปิดร้าน',];
 
   opentime = [
     "เปิดร้าน", "ปิดร้าน"

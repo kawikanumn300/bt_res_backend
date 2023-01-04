@@ -10,7 +10,9 @@ import {
   DxLoadPanelModule,
   DxSelectBoxModule,
   DxValidationSummaryModule,
-  DxValidatorModule
+  DxValidatorModule,
+  DxRadioGroupModule, 
+  DxGalleryModule,
 } from 'devextreme-angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +44,9 @@ import { BtResNameListComponent } from './component/bt-res-name-listview/bt-res-
 import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview/bt-res-name-detailview.component';
 import { BtResFoodListviewComponent } from './component/bt-res-food-listview/bt-res-food-listview.component';
 import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
+import { BTRESUSERBILLComponent } from './component/bt-res-user-pay/bt-res-user-bill.component';
+import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
+import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
 const icons = {
 
   LogOut
@@ -60,6 +65,9 @@ const icons = {
     BtResNameDetailviewComponent,
     BtResFoodListviewComponent,
     BtResFoodDetailviewComponent,
+    BTRESUSERBILLComponent,
+    BtResUserPayEditComponent,
+    BtResUserPayImageComponent,
     
 
   ],
@@ -84,6 +92,8 @@ const icons = {
     DxLoadPanelModule,
     DxLoadIndicatorModule,
     DxListModule,
+    DxRadioGroupModule,
+    DxGalleryModule,
 
   ],
   providers: [],

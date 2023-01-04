@@ -38,6 +38,15 @@ const gender: string[] = ['Male', 'Female'];
 let s = 123456789;
 @Injectable()
 export class Service {
+  getImages(): string[] {
+    throw new Error('Method not implemented.');
+  }
+  getPriorityEntities(): any {
+    throw new Error('Method not implemented.');
+  }
+  getTasks(): any {
+    throw new Error('Method not implemented.');
+  }
   random() {
     s = (1103515245 * s + 12345) % 2147483647;
     return s % (10 - 1);

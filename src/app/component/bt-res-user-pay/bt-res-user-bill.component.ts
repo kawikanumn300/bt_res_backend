@@ -1,23 +1,23 @@
-import { BtResFoodList } from './../../service/BtResFoodListService';
-import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DxDataGridComponent } from 'devextreme-angular';
 import { custom } from 'devextreme/ui/dialog';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { DxDataGridComponent, DxMultiViewComponent } from 'devextreme-angular';
+import { HttpClient} from '@angular/common/http';
 import { Dialogue } from 'src/app/assete/dialog';
-import { foodlisturl, Value } from 'src/app/service/BtResFoodListService';
-
-
+import { finalize } from 'rxjs';
+import DataSource from 'devextreme/data/data_source';
+import { BtResNameList, namelisturl ,Value} from 'src/app/service/BtResNameListService';
 
 @Component({
-  selector: 'app-bt-res-food-listview',
-  templateUrl: './bt-res-food-listview.component.html',
-  styleUrls: ['./bt-res-food-listview.component.scss']
+  selector: 'app-bt-res-user-bill',
+  templateUrl: './bt-res-user-bill.component.html',
+  styleUrls: ['./bt-res-user-bill.component.scss']
 })
-export class BtResFoodListviewComponent implements OnInit{
+export class BTRESUSERBILLComponent implements OnInit{
   data: any;
   id_delete:any;
   id_edit:any;
+  id_image:any;
 
   @ViewChild(DxDataGridComponent)
   dataGrid!: DxDataGridComponent;
@@ -41,22 +41,21 @@ export class BtResFoodListviewComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.http.get<BtResFoodList>(foodlisturl).subscribe(response => {
+    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
       this.data = response.Value;
        console.log(this.data);
     });
-  
   }
 
   async deletedata(event:any, d:any){
-    this.id_delete= d.data.FOOD_ID;
+    this.id_delete= d.data.RES_ID;
     const confirm = await Dialogue.Confirm("ยืนยัน",
             `คุณต้องการลบข้อมูลนี้หรือไม่?`);
         if (!confirm) {
             return;
         }
 
-        this.http.delete(foodlisturl+"/"+this.id_delete).subscribe(
+        this.http.delete(namelisturl+"/"+this.id_delete).subscribe(
           _=>{
             custom({
               messageHtml: "ลบข้อมูลเรียบร้อย",
@@ -71,31 +70,30 @@ export class BtResFoodListviewComponent implements OnInit{
 
         )})
        // this.dataGrid.instance.refresh();
-    console.log(d.data.FOOD_ID);
+    console.log(d.data.RES_ID);
 
   }
 
   editdata(event:any,d:any){
-    this.id_edit = d.data.FOOD_ID;
-    this.router.navigate(['/food-detail',{id:this.id_edit}]);
+    this.id_edit = d.data.RES_ID;
+    this.router.navigate(['/bt-pay-edit',{id:this.id_edit}]);
+  }
+  editimage(event:any,d:any){
+    this.id_image = d.data.RES_ID;
+    this.router.navigate(['/bt-pay-image',{id:this.id_image}]);
   }
 
   GetStatus(Status: Value) {
     let data1;
-    if (Status.USER_STATUS === "A") {
-      data1 = "มี";
-    } else if (Status.USER_STATUS === "I") { data1 = "หมด"; }
+    if (Status.RES_STATUS === "O") {
+      data1 = "เปิด";
+    } else if (Status.RES_STATUS === "C") { data1 = "ปิด"; }
     return data1;
   }
   OnToolbarPrePreparing(e:any) {
     if (e.toolbarOptions.items.length > 0) {
         e.toolbarOptions.items[0].location = "before";
-    }e.toolbarOptions.items.unshift(
-      {
-          template: "btnAdd",
-          location: "after"
-      }
-  );
+    }
 
 }
 }
