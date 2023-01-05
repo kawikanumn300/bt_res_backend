@@ -13,6 +13,7 @@ import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview
 import { BTRESUSERBILLComponent } from './component/bt-res-user-pay/bt-res-user-bill.component';
 import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
 import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
+import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-order-day.component';
 
 
 
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path:'bt-pay-image',
     component: BtResUserPayImageComponent
+  },
+  {
+    path:'bt-order-day',
+    component: BtResOrderDayComponent
   },
 
 

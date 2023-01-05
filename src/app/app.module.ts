@@ -11,8 +11,15 @@ import {
   DxSelectBoxModule,
   DxValidationSummaryModule,
   DxValidatorModule,
-  DxRadioGroupModule, 
+  DxRadioGroupModule,
   DxGalleryModule,
+  DxCalendarModule,
+  DxDataGridModule,
+  DxBulletModule,
+  DxTemplateModule,
+  DxTextBoxModule,
+  DxFormModule,
+  DxTooltipModule,
 } from 'devextreme-angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,16 +27,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/main/login/login.component';
 import { MainmenuComponent } from './component/main/mainmenu/mainmenu.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import {
-  DxDataGridModule,
-  DxBulletModule,
-  DxTemplateModule,
-  DxTextBoxModule,
-  DxFormModule,
-  DxTooltipModule,
-
-} from 'devextreme-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FeatherModule } from 'angular-feather';
 import { LogOut } from 'angular-feather/icons';
@@ -47,6 +44,7 @@ import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview
 import { BTRESUSERBILLComponent } from './component/bt-res-user-pay/bt-res-user-bill.component';
 import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
 import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
+import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-order-day.component';
 const icons = {
 
   LogOut
@@ -68,7 +66,8 @@ const icons = {
     BTRESUSERBILLComponent,
     BtResUserPayEditComponent,
     BtResUserPayImageComponent,
-    
+    BtResOrderDayComponent,
+
 
   ],
   imports: [
@@ -94,6 +93,7 @@ const icons = {
     DxListModule,
     DxRadioGroupModule,
     DxGalleryModule,
+    DxCalendarModule,
 
   ],
   providers: [],

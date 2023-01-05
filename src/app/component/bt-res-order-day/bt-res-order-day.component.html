@@ -1,0 +1,45 @@
+<app-navbar> </app-navbar>
+<div class="container">
+    <div class="bw-nav">
+        <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลร้านอาหาร</div>
+    </div>
+    <!--btn-class  -->
+    <dx-data-grid #dataGrid id="gridContainer" style="margin: auto; float: left; max-width: 80%;" [dataSource]="data"
+        keyExpr="RES_ID" [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+        <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+
+        <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
+            alignment="center">
+        </dxi-column>
+        <dxi-column alignment="center" caption="ชื่อร้านผู้ใช้" dataField="RES_NAME" [width]="300">
+        </dxi-column>
+        <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_NAME" [width]="200">
+        </dxi-column>
+        <dxi-column alignment="center" caption="รายการอาหาร" dataField="RES_PHONE" [width]="200">
+        </dxi-column>
+        <dxi-column alignment="center" caption="ราคาอาหาร" dataField="RES_STATUS" [width]="100"
+            [calculateDisplayValue]="GetStatus">
+        </dxi-column>
+        <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_STATUS" [width]="250"
+            [calculateDisplayValue]="GetStatus">
+        </dxi-column>
+        <dxi-column alignment="center" caption="วันที่สั่ง" dataField="RES_DETAIL" [width]="200">
+        </dxi-column>
+        <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+        <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
+            [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons">
+        </dxo-pager>
+    </dx-data-grid>
+</div>
+<div class="calendar-container">
+    <dx-calendar #calendar [value]="currentValue" (min)="minDateValue" (max)="maxDateValue"
+        (disabledDates)="disabledDates" [showWeekNumbers]="false" [disabled]="false" [firstDayOfWeek]="0"
+        [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate" weekNumberRule="auto">
+    </dx-calendar>
+</div>
+<div style="padding-right: 6%; padding-top: 2%;">
+    <dx-button id="btn-exit" text="หน้าหลัก" type="danger" routerLink="/mainmenu" icon="home">
+    </dx-button>
+</div>

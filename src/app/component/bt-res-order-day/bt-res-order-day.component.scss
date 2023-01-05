@@ -1,0 +1,249 @@
+
+.bw-nav {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+::ng-deep #btn-exit{
+    float: right;
+    width: 10%;
+    color: #fff;
+    background: rgba(38, 93, 165, 0.862745098);
+}
+.cm-title-pages {
+    font-size: 25px;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    color: black;
+    padding-bottom: 0px;
+}
+
+.container {
+    padding-top: 2%;
+    max-width: 95%;
+}
+.dx-calendar {
+    width: 282px;
+    min-width: 282px;
+    height: 268.6px;
+    min-height: 268.6px;
+    background-color: rgb(243, 243, 243);
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    border: 1px solid transparent;
+    float: right;
+}   
+::ng-deep .calendar-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+.container-btn {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.btn {
+    margin-left: 10px;
+    height: 50px;
+}
+
+.btn-clear {
+    width: 160px;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #0750bd;
+    --bs-btn-border-color: #0750bd;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #053b8d;
+    --bs-btn-hover-border-color: #053b8d;
+    --bs-btn-focus-shadow-rgb: 225, 83, 97;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #053b8d;
+    --bs-btn-active-border-color: #053b8d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0750bd;
+    --bs-btn-disabled-border-color: #0750bd;
+}
+
+.btn-warning {
+    background-color: #ffc10773;
+}
+
+::ng-deep #dx-col-10 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-11 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-12 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-13 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-14 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-6 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-7 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-8 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-9 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+
+.input-group {
+    width: 20%;
+}
+
+.input-group-text {
+    background: white;
+
+}
+
+.add-button {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.btn-warning {
+    width: 100px;
+}
+
+.input-group-add-btn {
+    float: right;
+}
+
+.dx-gridbase-container {
+    display: block;
+    flex-direction: column;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+
+.svg_width {
+    width: 15px;
+    height: 15px;
+}
+
+.row-form {
+    display: flex;
+    padding-bottom: 5%;
+}
+
+.form-select {
+    width: 100%;
+}
+
+.form-1 {
+    padding-right: 10px;
+}
+
+.form-2 {
+    padding-left: 10px;
+}
+
+.input-from-1,
+.input-from-2 {
+    color: #313132;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: 18px;
+}
+
+.font-h2 {
+    color: #313132;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: 24px;
+    padding-bottom: 2%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+::ng-deep #btn-color-add-resorce {
+    cursor: pointer;
+    color: black !important;
+    background-color: rgba(255, 166, 0, 0.589) !important;
+}
+
+.dx-button-center {
+    align-items: center;
+    padding-bottom: 5%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: #333;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: initial;
+    border: 1px solid #eee;
+    border-radius: 0.25rem;
+}
+
+.card {
+    font-size: .875rem;
+    min-height: auto;
+}
+.dx-button-mode-contained.dx-button-success {
+    background-color: #5cb85c;
+    border-color: transparent;
+    color: #fff;
+    height: 35px;
+}
+.dx-button-mode-contained.dx-button-danger {
+    background-color: #5cb85c;
+    border-color: transparent;
+    color: #fff;
+
+}
