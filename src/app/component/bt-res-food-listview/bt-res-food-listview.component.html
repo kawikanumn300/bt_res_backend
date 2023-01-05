@@ -8,13 +8,14 @@
   <!--btn-class  -->
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="FOOD_ID"
     [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
-    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." ></dxo-search-panel>
 
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="FOOD_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column caption="รหัสร้านอาหาร" [width]="150" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
+    <dxi-column caption="ร้านอาหาร" [width]="150"  dataField="RES_ID"
       alignment="center">
+      <dxo-lookup [dataSource]="resdata" valueExpr="RES_ID" displayExpr="RES_NAME"></dxo-lookup>
     </dxi-column>
     <dxi-column alignment="center" caption="ชื่ออาหาร" dataField="FOOD_NAME" [width]="250">
     </dxi-column>

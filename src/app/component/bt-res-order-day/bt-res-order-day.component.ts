@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -7,6 +8,7 @@ import { Dialogue } from 'src/app/assete/dialog';
 import { finalize } from 'rxjs';
 import DataSource from 'devextreme/data/data_source';
 import { BtResNameList, namelisturl, Value } from 'src/app/service/BtResNameListService';
+import { userbill,BtResUserBill } from 'src/app/service/BtResUserBillService';
 
 @Component({
   selector: 'app-bt-res-order-day',
@@ -17,7 +19,7 @@ export class BtResOrderDayComponent implements OnInit {
   data: any;
   id_delete: any;
   id_edit: any;
-  
+
 
   now: Date = new Date();
 
@@ -71,7 +73,7 @@ export class BtResOrderDayComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
+    this.http.get<BtResUserBill>(userbill).subscribe(response => {
       this.data = response.Value;
       console.log(this.data);
     });
@@ -128,4 +130,5 @@ export class BtResOrderDayComponent implements OnInit {
     );
 
   }
+  
 }

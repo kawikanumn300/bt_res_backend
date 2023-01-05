@@ -1,3 +1,4 @@
+import { BtResNameList, namelisturl } from './../../service/BtResNameListService';
 import { BtResFoodList } from './../../service/BtResFoodListService';
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -16,6 +17,7 @@ import { foodlisturl, Value } from 'src/app/service/BtResFoodListService';
 })
 export class BtResFoodListviewComponent implements OnInit{
   data: any;
+  resdata:any;
   id_delete:any;
   id_edit:any;
 
@@ -45,7 +47,10 @@ export class BtResFoodListviewComponent implements OnInit{
       this.data = response.Value;
        console.log(this.data);
     });
-  
+    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
+      this.resdata = response.Value;
+       console.log(this.resdata);
+    });
   }
 
   async deletedata(event:any, d:any){
