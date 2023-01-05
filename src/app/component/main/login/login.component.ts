@@ -29,12 +29,12 @@ export class LoginComponent {
       this.value = Object.values(response);
 
       if (this.value[0] == true) {
-        console.log(this.value[5][2]);
+        // console.log(this.value[5][2]);
         this.name = this.value[5][0];
         this.lastname = this.value[5][1];
-        console.log(this.name);
-        console.log(this.lastname);
-        if (this.value[5][2] == "A") { 
+        // console.log(this.name);
+        // console.log(this.lastname);
+        if (this.value[5][2] == "A") {
           await custom({
             messageHtml: "ยินดีต้อนรับเข้าสู่ระบบ",
             title: "สำเร็จ",

@@ -17,15 +17,19 @@ export class NavbarComponent implements OnInit {
   todayISOString : string = new Date().toISOString();
 
   ngOnInit(): void {
+
     const name = sessionStorage.getItem('name');
     const lname = sessionStorage.getItem('lname');
     this.name = name;
     this.lastname = lname;
-    console.log(name);
+    if(this.name == null){
+      this.router.navigate(["/login"]);
+    }
+    //console.log(name);
     }
 
     logout(){
-      const confirm = 
+      const confirm =
       sessionStorage.clear();
       this.router.navigate(["/login"]);
 

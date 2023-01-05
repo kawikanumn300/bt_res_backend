@@ -1,14 +1,10 @@
 
 import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
-
 import { BtResUser, Value, baseUrl, } from '../../service/BtResUserService';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { DxMultiViewComponent } from 'devextreme-angular';
 import { HttpClient } from '@angular/common/http';
 import { Dialogue } from 'src/app/assete/dialog';
-import { finalize } from 'rxjs';
-import DataSource from 'devextreme/data/data_source';
 
 @Component({
   selector: 'app-bt-res-user-listview',
@@ -16,6 +12,7 @@ import DataSource from 'devextreme/data/data_source';
   styleUrls: ['./bt-res-user-listview.component.scss']
 })
 export class BtResUserListviewComponent implements OnInit {
+
   data: any;
   id_delete: any;
   id_edit: any;
@@ -50,6 +47,8 @@ export class BtResUserListviewComponent implements OnInit {
 
       }
     });
+
+
   }
   GetStatus(Status: Value) {
     let data1;

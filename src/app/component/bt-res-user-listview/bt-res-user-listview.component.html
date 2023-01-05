@@ -5,7 +5,7 @@
     <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลผู้ใช้งาน > ข้อมูลผู้ใช้งาน</div>
   </div>
   <!--btn-class  -->
-  <dx-data-grid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID" [showBorders]="true"
+  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="USER_ID" [showBorders]="true"
     noDataText="ไม่มีข้อมูล" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
     <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
