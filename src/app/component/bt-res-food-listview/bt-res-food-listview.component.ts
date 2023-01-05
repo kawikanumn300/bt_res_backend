@@ -6,6 +6,7 @@ import { DxDataGridComponent } from 'devextreme-angular';
 import { custom } from 'devextreme/ui/dialog';
 import { Dialogue } from 'src/app/assete/dialog';
 import { foodlisturl, Value } from 'src/app/service/BtResFoodListService';
+import { BtResNameList, namelisturl } from 'src/app/service/BtResNameListService';
 
 
 
@@ -87,6 +88,8 @@ export class BtResFoodListviewComponent implements OnInit{
     } else if (Status.USER_STATUS === "I") { data1 = "หมด"; }
     return data1;
   }
+
+  
   OnToolbarPrePreparing(e:any) {
     if (e.toolbarOptions.items.length > 0) {
         e.toolbarOptions.items[0].location = "before";
