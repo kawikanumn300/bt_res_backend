@@ -1,4 +1,3 @@
-import { BtResNameList, namelisturl } from './../../service/BtResNameListService';
 import { BtResFoodList } from './../../service/BtResFoodListService';
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, OnInit } from '@angular/core';

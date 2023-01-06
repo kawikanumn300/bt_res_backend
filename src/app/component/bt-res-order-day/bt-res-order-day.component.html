@@ -12,19 +12,20 @@
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="BILL_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="150">
+    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_ID" [width]="230">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายการอาหาร" dataField="FOOD_ID" [width]="150">
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="230">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_ID" [width]="200">
+    <dxi-column alignment="center" caption="รายการอาหาร" dataField="FOOD_ID" [width]="230">
     </dxi-column>
+
     <dxi-column alignment="center" caption="ราคาอาหาร" dataField="BILL_RESULT" [width]="100">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_STATUS" [width]="250"
+    <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_STATUS" [width]="300"
       [calculateDisplayValue]="GetStatus">
     </dxi-column>
-    <dxi-column alignment="center" caption="วันที่สั่ง" dataField="CREATE_DATE" [width]="200" [allowEditing]="true">
-
+    <dxi-column alignment="center" caption="วันที่สั่ง" [width]="200" [allowEditing]="true" dataField="CREATE_DATE"
+      dataType="date" format="dd-MM-yyyy">
     </dxi-column>
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
     <dxo-paging [pageSize]="10"> </dxo-paging>
@@ -34,9 +35,9 @@
   </dx-data-grid>
 </div>
 <div class="calendar-container">
-  <dx-calendar #calendar [value]="currentValue" (min)="minDateValue" (max)="maxDateValue"
+  <dx-calendar #calendar [(value)]="currentValue" (min)="minDateValue" (max)="maxDateValue"
     (disabledDates)="disabledDates" [showWeekNumbers]="false" [disabled]="false" [firstDayOfWeek]="0"
-    [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate" weekNumberRule="auto">
+    [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate" weekNumberRule="auto" (onValueChanged)="getDate()">
   </dx-calendar>
 </div>
 <div style="padding-right: 6%; padding-top: 2%;">
