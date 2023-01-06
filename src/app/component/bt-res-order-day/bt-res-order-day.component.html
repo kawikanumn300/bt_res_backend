@@ -34,9 +34,9 @@
   </dx-data-grid>
 </div>
 <div class="calendar-container">
-  <dx-calendar #calendar [value]="currentValue" (min)="minDateValue" (max)="maxDateValue"
-    (disabledDates)="disabledDates" [showWeekNumbers]="false" [disabled]="false" [firstDayOfWeek]="0"
-    [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate" weekNumberRule="auto">
+  <dx-calendar #calendar (value)="currentValue"
+     [showWeekNumbers]="false" [disabled]="false" [firstDayOfWeek]="0"
+    [zoomLevel]="zoomLevels[0]" [cellTemplate]="cellTemplate" weekNumberRule="auto" (onValueChanged)="clickcalendar($event)">
   </dx-calendar>
 </div>
 <div style="padding-right: 6%; padding-top: 2%;">

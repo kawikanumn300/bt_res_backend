@@ -1,4 +1,4 @@
-import { BtResNameList, namelisturl } from './../../service/BtResNameListService';
+
 import { BtResFoodList } from './../../service/BtResFoodListService';
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -94,7 +94,7 @@ export class BtResFoodListviewComponent implements OnInit{
     return data1;
   }
 
-  
+
   OnToolbarPrePreparing(e:any) {
     if (e.toolbarOptions.items.length > 0) {
         e.toolbarOptions.items[0].location = "before";

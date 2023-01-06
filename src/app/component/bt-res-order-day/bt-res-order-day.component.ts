@@ -77,6 +77,7 @@ export class BtResOrderDayComponent implements OnInit {
       this.data = response.Value;
       console.log(this.data);
     });
+
   }
 
   async deletedata(event: any, d: any) {
@@ -130,5 +131,8 @@ export class BtResOrderDayComponent implements OnInit {
     );
 
   }
-  
+  clickcalendar(event:any){
+    console.log(event.value)
+  }
+
 }
