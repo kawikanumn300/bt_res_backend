@@ -23,6 +23,6 @@ export interface Value {
   UPDATE_USER_ID: number;
   USER_STATUS: string;
   RES_IMAGE: string;
-  CREATE_DATE: string;
-  UPDATE_DATE: string;
+  CREATE_DATE: Date;
+  UPDATE_DATE: Date;
 }

@@ -20,7 +20,6 @@ import {
   DxTextBoxModule,
   DxFormModule,
   DxTooltipModule,
-  
 } from 'devextreme-angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,7 +33,6 @@ import { LogOut } from 'angular-feather/icons';
 import { NavbarComponent } from './component/main/navbar/navbar.component';
 import { BtResUserListviewComponent } from './component/bt-res-user-listview/bt-res-user-listview.component';
 import { BtResUserDetailviewComponent } from './component/bt-res-user-detailview/bt-res-user-detailview.component';
-
 
 import { FormsModule } from '@angular/forms';
 import { BtResUserEditComponent } from './component/bt-res-user-edit/bt-res-user-edit.component';
@@ -95,7 +93,6 @@ const icons = {
     DxRadioGroupModule,
     DxGalleryModule,
     DxCalendarModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

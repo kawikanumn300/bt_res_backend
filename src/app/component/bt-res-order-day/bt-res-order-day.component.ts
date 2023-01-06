@@ -8,7 +8,7 @@ import { Dialogue } from 'src/app/assete/dialog';
 import { finalize } from 'rxjs';
 import DataSource from 'devextreme/data/data_source';
 import { BtResNameList, namelisturl, Value } from 'src/app/service/BtResNameListService';
-import { userbill,BtResUserBill } from 'src/app/service/BtResUserBillService';
+import { userbill, BtResUserBill } from 'src/app/service/BtResUserBillService';
 
 @Component({
   selector: 'app-bt-res-order-day',
@@ -23,7 +23,7 @@ export class BtResOrderDayComponent implements OnInit {
 
   now: Date = new Date();
 
-  currentValue: Date = new Date(Date.now());
+  currentValue: Date = new Date();
 
   minDateValue: Date | null = null;
 
@@ -106,6 +106,9 @@ export class BtResOrderDayComponent implements OnInit {
     // this.dataGrid.instance.refresh();
     console.log(d.data.RES_ID);
 
+  }
+  getDate() {
+    console.log(this.now )
   }
 
   editdata(event: any, d: any) {
