@@ -17,11 +17,12 @@ export class BtResFoodDetailviewComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
   title = "";
   head = "";
+  wqeqq = "1111";
   id: any;
   foodname = "";
   foodnormal = "";
   foodspacial = "";
-  statusrecord = "";
+  statusrecord: any;
   data: any;
   usestatus = "";
   fooddetail = "";
@@ -29,12 +30,10 @@ export class BtResFoodDetailviewComponent implements OnInit {
     "มี", "ไม่มี"
   ];
   resid = "";
-  priorities=[
-    "มี", "หมด"
-  ]
-
+  priorities = [{ value: 'มี', text: 'มี' }, { value: 'หมด', text: 'หมด' }];
+  defaultResId :any;
   resnameselect: any;
-  namelist = [];
+  namelist :any;
 
   read: boolean = true;
 
@@ -42,8 +41,10 @@ export class BtResFoodDetailviewComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.http.get<any>(namelisturl).subscribe(response => {
-      this.resnameselect = response.Value;
+    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
+      this.namelist = response;
+      this.resnameselect = this.namelist.Value;
+      this.defaultResId = this.resnameselect.RES_ID;
       //this.resnameselect = response.Value.map((item: { RES_NAME: any; }) => item.RES_NAME);
       console.log(this.resnameselect)
     });
@@ -59,8 +60,8 @@ export class BtResFoodDetailviewComponent implements OnInit {
       this.read = false;
     } else {
       console.log(this.id);
-      this.title = "แก้ใขข้อมูลร้านอาหาร";
-      this.head = "แก้ใขข้อมูลร้านอาหาร";
+      this.title = "แก้ใขข้อมูลรายการอาหาร";
+      this.head = "แก้ใขข้อมูลรายการอาหาร";
       this.http.get<BtResFoodList>(foodlisturl + '/' + this.id).subscribe(response => {
         this.data = response;
         console.log(this.data.Value.FOOD_NAME);
@@ -69,7 +70,23 @@ export class BtResFoodDetailviewComponent implements OnInit {
         this.foodspacial = this.data.Value.FOOD_SPECIAL;
         this.resid = this.data.Value.RES_ID;
         this.fooddetail = this.data.Value.FOOD_NOTE;
-        this.statusrecord = this.data.Value.RECORD_STATUS;
+        this.statusrecord = this.data.Value.USER_STATUS;
+
+        this.defaultResId= this.resid;
+
+        if (this.statusrecord === 'A') {
+          this.priorities.forEach((item) => {
+            if (item.value === 'มี') {
+              this.statusrecord = item;
+            }
+          });
+        } else if (this.statusrecord === 'I') {
+          this.priorities.forEach((item) => {
+            if (item.value === 'หมด') {
+              this.statusrecord = item;
+            }
+          });
+        }
       });
 
     }
@@ -132,7 +149,7 @@ export class BtResFoodDetailviewComponent implements OnInit {
     }
   }
   statuschange() {
-    if (this.statusrecord == "มี") {
+    if (this.statusrecord.text === "มี") {
       this.usestatus = "A"
       console.log(this.usestatus);
     } else {

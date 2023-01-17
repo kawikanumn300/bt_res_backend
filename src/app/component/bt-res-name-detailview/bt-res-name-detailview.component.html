@@ -2,16 +2,16 @@
 
 <div class="container" style="padding-top: 1%;">
   <div class="bw-nav">
-    <div class="cm-title-pages"  style="font-weight:bold;">ข้อมูล ร้านอาหาร</div>
+    <div class="cm-title-pages" style="font-weight:bold;">ข้อมูล ร้านอาหาร</div>
   </div>
   <div class="card">
-    <form action="your-action" (ngSubmit)="Submit()" >
+    <form action="your-action" (ngSubmit)="Submit()">
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header"  style="font-weight:bold;">{{head}}</div>
+        <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
         <div class="dx-field">
           <div class="dx-field-label">ชื่อร้านอาหาร</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="resname" >
+            <dx-text-box [(value)]="resname">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกชื่อร้านอาหาร"></dxi-validation-rule>
               </dx-validator>
@@ -49,12 +49,8 @@
           <div class="dx-field">
             <div class="dx-field-label">สถานะ เปิด/ปิด</div>
             <div class="dx-field-value">
-              <dx-radio-group
-                [items]="priorities"
-                [(value)]="statusrecord"
-                layout="horizontal"
-                (onValueChanged)="statuschange()"
-              >
+              <dx-radio-group [items]="priorities" [(value)]="statusrecord" layout="horizontal"
+                (onValueChanged)="statuschange()">
               </dx-radio-group>
             </div>
           </div>
@@ -72,6 +68,11 @@
             </div>
           </div>
         </div> -->
+        <div class="dx-fieldset-header" style="font-weight:bold;">อัปโหลดรูปภาพร้านอาหาร</div>
+
+        <!-- <div ><app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
+        <div style="display: flex; justify-content: center;"><img src="http://localhost:43308{{img}}" alt="" width="250px" height="150px" ></div>
+        </div> -->
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">
@@ -79,6 +80,7 @@
           </dx-button>&nbsp;
           <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/resname-list" icon="remove">
           </dx-button>
+
         </div>
       </div>
     </form>

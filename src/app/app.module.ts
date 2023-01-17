@@ -20,6 +20,7 @@ import {
   DxTextBoxModule,
   DxFormModule,
   DxTooltipModule,
+
 } from 'devextreme-angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +45,7 @@ import { BTRESUSERBILLComponent } from './component/bt-res-user-pay/bt-res-user-
 import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
 import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
 import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-order-day.component';
+import { UploadComponent } from './component/upload/upload.component';
 const icons = {
 
   LogOut
@@ -66,6 +68,7 @@ const icons = {
     BtResUserPayEditComponent,
     BtResUserPayImageComponent,
     BtResOrderDayComponent,
+    UploadComponent,
 
 
   ],
@@ -93,6 +96,7 @@ const icons = {
     DxRadioGroupModule,
     DxGalleryModule,
     DxCalendarModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

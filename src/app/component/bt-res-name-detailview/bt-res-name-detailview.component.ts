@@ -19,16 +19,18 @@ export class BtResNameDetailviewComponent implements OnInit {
   resname = "";
   phone = "";
   detail = "";
-  statusrecord = "";
+  statusrecord :any;
   data: any;
   usestatus ="";
-  priorities = ['เปิดร้าน','ปิดร้าน',];
-
+  img :any;
+  priorities = [{value: 'เปิดร้าน', text:'เปิดร้าน'},{value: 'ปิดร้าน',text:'ปิดร้าน'}];
+  response : any;
+  img1:any;
   opentime = [
     "เปิดร้าน", "ปิดร้าน"
   ];
   read : boolean = true;
-
+  selectedOption:any;
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
@@ -49,10 +51,29 @@ export class BtResNameDetailviewComponent implements OnInit {
         this.resname = this.data.Value.RES_NAME;
         this.phone = this.data.Value.RES_PHONE;
         this.detail = this.data.Value.RES_DETAIL;
-        this.statusrecord = "";
+        this.statusrecord = this.data.Value.RES_STATUS;
+
+
+        if (this.statusrecord === 'O') {
+          this.priorities.forEach((item) => {
+            if(item.value === 'เปิดร้าน') {
+              this.statusrecord = item;
+            }
+          });
+        } else if (this.statusrecord === 'C') {
+          this.priorities.forEach((item) => {
+            if(item.value === 'ปิดร้าน') {
+              this.statusrecord = item;
+            }
+          });
+        }
+        // this.img=this.data.Value.RES_IMAGE;
+        console.log(this.statusrecord);
+        // this.img =this.data.Value.RES_IMAGE;
       });
 
     }
+
   }
 
   async Submit() {
@@ -62,7 +83,8 @@ export class BtResNameDetailviewComponent implements OnInit {
       RECORD_STATUS: "A",
       RES_PHONE: this.phone,
       RES_DETAIL: this.detail,
-      RES_STATUS: this.usestatus
+      RES_STATUS: this.usestatus,
+      // RES_IMAGE: this.response.Value.fileUrl
     };
     const formData = new FormData();
     formData.append('RES_NAME', this.resname);
@@ -70,7 +92,7 @@ export class BtResNameDetailviewComponent implements OnInit {
     formData.append('RES_PHONE', this.phone);
     formData.append('RES_DETAIL', this.detail);
     formData.append('RES_STATUS', this.usestatus);
-    // formData.append('USER_PHONE_NUMBER', this.phone);
+    // formData.append('RES_IMAGE', this.response.Value.dbPath);
     // formData.append('USER_EMAIL', this.email);
     // formData.append('USER_RIGHTS', "U");
     console.log(data1);
@@ -105,13 +127,18 @@ const headers = new HttpHeaders();
     }
   }
   statuschange() {
-    if (this.statusrecord == "เปิดร้าน") {
+    if (this.statusrecord.text === "เปิดร้าน") {
       this.usestatus = "O"
       console.log(this.usestatus);
     } else {
       this.usestatus = "C"
       console.log(this.usestatus);
     }
+  }
+  public onUploadFinished =(event:any)=>{
+      this.response =event;
+      this.img = this.response.Value.fileUrl;
+      console.log(this.response.Value.fileUrl);
   }
 }
 

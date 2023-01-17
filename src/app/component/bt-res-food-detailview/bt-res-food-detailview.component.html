@@ -13,7 +13,9 @@
             <div class="dx-field-label">รายชื่อร้านอาหาร</div>
             <div class="dx-field-value">
               <dx-select-box [dataSource]="resnameselect" validationMessagePosition="left"
-                (onValueChanged)="onSelectionChanged($event)" displayExpr="RES_NAME" valueExpr="RES_ID">
+                (onValueChanged)="onSelectionChanged($event)" displayExpr="RES_NAME" valueExpr="RES_ID"
+                [value]="defaultResId" 
+                >
 
               </dx-select-box>
             </div>

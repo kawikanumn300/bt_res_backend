@@ -1,12 +1,11 @@
-
+import { BtResFoodList, foodlisturl } from 'src/app/service/BtResFoodListService';
+import { BtResUser, baseUrl } from 'src/app/service/BtResUserService';
 import { Router } from '@angular/router';
 import { custom } from 'devextreme/ui/dialog';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DxDataGridComponent, DxMultiViewComponent } from 'devextreme-angular';
 import { HttpClient } from '@angular/common/http';
 import { Dialogue } from 'src/app/assete/dialog';
-import { finalize } from 'rxjs';
-import DataSource from 'devextreme/data/data_source';
 import { BtResNameList, namelisturl, Value } from 'src/app/service/BtResNameListService';
 import { userbill, BtResUserBill } from 'src/app/service/BtResUserBillService';
 
@@ -19,8 +18,10 @@ export class BtResOrderDayComponent implements OnInit {
   data: any;
   id_delete: any;
   id_edit: any;
-
-
+  datafromcalendar: any;
+  userdata: any;
+  resdata: any;
+  fooddata: any;
   now: Date = new Date();
 
   currentValue: Date = new Date();
@@ -75,9 +76,20 @@ export class BtResOrderDayComponent implements OnInit {
 
     this.http.get<BtResUserBill>(userbill).subscribe(response => {
       this.data = response.Value;
-      console.log(this.data);
+      //console.log(this.data);
     });
-
+    this.http.get<BtResUser>(baseUrl).subscribe(response => {
+      this.userdata = response.Value;
+      // console.log(this.data);
+    });
+    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
+      this.resdata = response.Value;
+      // console.log(this.data);
+    });
+    this.http.get<BtResFoodList>(foodlisturl).subscribe(response => {
+      this.fooddata = response.Value;
+      // console.log(this.data);
+    });
   }
 
   async deletedata(event: any, d: any) {
@@ -108,7 +120,7 @@ export class BtResOrderDayComponent implements OnInit {
 
   }
   getDate() {
-    console.log(this.now )
+    console.log(this.now)
   }
 
   editdata(event: any, d: any) {
@@ -134,8 +146,11 @@ export class BtResOrderDayComponent implements OnInit {
     );
 
   }
-  clickcalendar(event:any){
-    console.log(event.value)
+  clickcalendar(event: any) {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    const formattedDate = event.value.toLocaleDateString('es-CL', options);
+    console.log(formattedDate);  // Output: "10-12-22"
+    this.datafromcalendar = formattedDate
   }
 
 }

@@ -7,22 +7,28 @@
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto; float: left; max-width: 80%;" [dataSource]="data"
     keyExpr="RES_ID" [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)"
     [dateSerializationFormat]="'yyyy-MM-dd'">
-    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." [(text)] ="datafromcalendar" ></dxo-search-panel>
 
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="BILL_ID"
       alignment="center">
     </dxi-column>
     <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_ID" [width]="230">
+      <dxo-lookup [dataSource]="resdata" valueExpr="RES_ID" displayExpr="RES_NAME">
+      </dxo-lookup>
     </dxi-column>
     <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="230">
+      <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME">
+      </dxo-lookup>
     </dxi-column>
     <dxi-column alignment="center" caption="รายการอาหาร" dataField="FOOD_ID" [width]="230">
+      <dxo-lookup [dataSource]="fooddata" valueExpr="FOOD_ID" displayExpr="FOOD_NAME">
+      </dxo-lookup>
     </dxi-column>
 
     <dxi-column alignment="center" caption="ราคาอาหาร" dataField="BILL_RESULT" [width]="100">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_STATUS" [width]="300"
-      [calculateDisplayValue]="GetStatus">
+    <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="RES_ID" [width]="300"
+     >
     </dxi-column>
     <dxi-column alignment="center" caption="วันที่สั่ง" [width]="200" [allowEditing]="true" dataField="CREATE_DATE"
       dataType="date" format="dd-MM-yyyy">

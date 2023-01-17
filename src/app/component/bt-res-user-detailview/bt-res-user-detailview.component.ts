@@ -23,15 +23,14 @@ export class BtResUserDetailviewComponent implements OnInit {
   usestatus = "";
   phone = "";
   email = "";
-  statusrecord = "";
+  statusrecord: any;
   data: any;
-  usestat="";
-  addusestat=""
-  priorities = ['ใช้งาน','ไม่ใช้งาน',];
-  status = [
-    "ผู้ดูแลระบบ", "ผู้ใช้ทั่วไป"
+  usestat: any;
+  addusestat = ""
+  priorities = [{ value: 'ใช้งาน', text: 'ใช้งาน' }, { value: 'ไม่ใช้งาน', text: 'ไม่ใช้งาน' }];
+  status = [{ value: 'ผู้ดูแลระบบ', text: 'ผู้ดูแลระบบ' }, { value: 'ผู้ใช้ทั่วไป', text: 'ผู้ใช้ทั่วไป' }
   ];
-  read : boolean = true;
+  read: boolean = true;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -43,28 +42,59 @@ export class BtResUserDetailviewComponent implements OnInit {
       this.confirmpassword = "";
       this.firstname = "";
       this.lastname = "";
-      this.usestatus = "";
+      this.usestat = "";
       this.phone = "";
       this.email = "";
       this.statusrecord = "";
-      this.read= false;
+      this.read = false;
     } else {
       console.log(this.id);
       this.title = "แก้ใขข้อมูลผู้ใช้งาน";
       this.head = "แก้ใขข้อมูลผู้ใช้งาน";
       this.http.get<BtResUser>(baseUrl + '/' + this.id).subscribe(response => {
         this.data = response;
-        console.log(this.data.Value.USER_USERNAME);
         this.username = this.data.Value.USER_USERNAME;
         this.password = this.data.Value.USER_PASSWORD;
         this.confirmpassword = this.data.Value.USER_PASSWORD;
         this.firstname = this.data.Value.USER_NAME;
         this.lastname = this.data.Value.USER_LASTNAME;
-        this.usestatus = this.data.Value.USER_STATUS;
+        this.usestat = this.data.Value.USER_STATUS;
         this.phone = this.data.Value.USER_PHONE_NUMBER;
         this.email = this.data.Value.USER_EMAIL;
         this.statusrecord = this.data.Value.USER_RIGHTS;
+        //สถานะการใช้งาน
+        if (this.usestat === 'A') {
+          this.priorities.forEach((item) => {
+            if (item.value === 'ใช้งาน') {
+              this.usestat = item;
+            }
+          });
+        } else if (this.usestat === 'I') {
+          this.priorities.forEach((item) => {
+            if (item.value === 'ไม่ใช้งาน') {
+              this.usestat = item;
+            }
+          });
+        }
+        //สิทธิผู้ใช้งาน
+        if (this.statusrecord === 'A') {
+          this.status.forEach((item) => {
+            if (item.value === 'ผู้ดูแลระบบ') {
+              this.statusrecord = item;
+            }
+          });
+        } else if (this.statusrecord === 'U') {
+          this.status.forEach((item) => {
+            if (item.value === 'ผู้ใช้ทั่วไป') {
+              this.statusrecord = item;
+            }
+          });
+        }
+      }, error => {
+        console.error(error);
       });
+
+
 
     }
   }
@@ -116,15 +146,15 @@ export class BtResUserDetailviewComponent implements OnInit {
         `คุณต้องการแก้ข้อมูลนี้หรือไม่?`);
       if (!confirm) {
         return;
-      }else{
+      } else {
         this.http.put(baseUrl + '/' + this.id, data1).subscribe(response => {
-        console.log(response);
-        this.router.navigate(['/user-listview'])
-      },
-        error => {
-          console.error(error);
-        }
-      );
+          console.log(response);
+          this.router.navigate(['/user-listview'])
+        },
+          error => {
+            console.error(error);
+          }
+        );
       }
 
     }
@@ -137,7 +167,7 @@ export class BtResUserDetailviewComponent implements OnInit {
   }
 
   statuschange() {
-    if (this.statusrecord == "ใช้งาน") {
+    if (this.statusrecord.text === "ใช้งาน") {
       this.usestatus = "A"
       console.log(this.usestatus);
     } else {
@@ -146,7 +176,7 @@ export class BtResUserDetailviewComponent implements OnInit {
     }
   }
   userchange() {
-    if (this.usestat == "ผู้ดูแลระบบ") {
+    if (this.usestat.text === "ผู้ดูแลระบบ") {
       this.addusestat = "A"
       console.log(this.addusestat);
     } else {

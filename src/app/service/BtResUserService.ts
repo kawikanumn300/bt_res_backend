@@ -5,7 +5,7 @@ export const baseUrl = "https://utcc-prc.demotoday.net/intern-api/api/BtResUser"
 export interface BtResUser  {
   IsSuccess: boolean;
   StatusCode: number;
-  StatusCodeDecimal: null;
+  StatusCodeDecimal: any;
   Message: string;
   StatusDateTime: Date;
   Value: Value[];
