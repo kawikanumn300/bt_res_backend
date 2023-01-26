@@ -34,7 +34,10 @@ export class BtResFoodDetailviewComponent implements OnInit {
   defaultResId :any;
   resnameselect: any;
   namelist :any;
-
+  response: any;
+  img: any;
+  showImage =false;
+     imageUrl :any;
   read: boolean = true;
 
   ngOnInit(): void {
@@ -71,9 +74,12 @@ export class BtResFoodDetailviewComponent implements OnInit {
         this.resid = this.data.Value.RES_ID;
         this.fooddetail = this.data.Value.FOOD_NOTE;
         this.statusrecord = this.data.Value.USER_STATUS;
-
+        this.img = this.data.Value.FOOD_IMAGE;
         this.defaultResId= this.resid;
-
+        if (this.img != null){
+          this.imageUrl = 'https://utcc-prc.demotoday.net/bt-order-api'+ this.img
+          this.showImage = true
+        }
         if (this.statusrecord === 'A') {
           this.priorities.forEach((item) => {
             if (item.value === 'มี') {
@@ -102,7 +108,7 @@ export class BtResFoodDetailviewComponent implements OnInit {
       FOOD_NOTE: this.fooddetail,
       USER_STATUS: this.usestatus,
       RES_ID: this.resid,
-
+      FOOD_IMAGE: this.img
 
     };
     const formData = new FormData();
@@ -113,6 +119,8 @@ export class BtResFoodDetailviewComponent implements OnInit {
     formData.append('USER_STATUS', this.usestatus);
     formData.append('RECORD_STATUS', "A");
     formData.append('RES_ID', this.resid);
+    formData.append('FOOD_IMAGE', this.img);
+
     // formData.append('USER_EMAIL', this.email);
     // formData.append('USER_RIGHTS', "U");
     console.log(data1);
@@ -160,6 +168,15 @@ export class BtResFoodDetailviewComponent implements OnInit {
   onSelectionChanged(event: any) {
     this.resid = event.value;
     console.log(this.resid);
+  }
+  public onUploadFinished = (event: any) => {
+    this.response = event;
+    this.img = this.response.Value.fileUrl;
+    console.log(this.response.Value.fileUrl);
+    if (this.img != null){
+      this.showImage = true
+      this.imageUrl = 'https://utcc-prc.demotoday.net/bt-order-api'+ this.img
+    }
   }
 }
 

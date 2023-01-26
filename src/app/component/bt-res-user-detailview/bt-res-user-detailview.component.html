@@ -9,7 +9,7 @@
       <div class="dx-fieldset">
         <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
         <div class="dx-field">
-          <div class="dx-field-label">ชื่อผู้ใช้</div>
+          <div class="dx-field-label">ชื่อผู้ใช้ <span style="color: #f00;"> *</span></div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="username" [readOnly]="read">
               <dx-validator>
@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="dx-field">
-            <div class="dx-field-label">รหัสผ่าน</div>
+            <div class="dx-field-label">รหัสผ่าน <span style="color: #f00;"> *</span></div>
             <div class="dx-field-value">
               <dx-text-box mode="password" [(value)]="password">
                 <dx-validator>
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="dx-field">
-            <div class="dx-field-label">ยืนยันรหัสผ่าน</div>
+            <div class="dx-field-label">ยืนยันรหัสผ่าน <span style="color: #f00;"> *</span></div>
             <div class="dx-field-value">
               <dx-text-box mode="password" [(value)]="confirmpassword"
                 [validationStatus]="checkPasswordMatch() ? 'valid' : 'invalid'"
@@ -46,9 +46,9 @@
         </div>
       </div>
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header"  style="font-weight:bold;">ข้อมูลส่วนตัว</div>
+        <div class="dx-fieldset-header" style="font-weight:bold;">ข้อมูลส่วนตัว</div>
         <div class="dx-field">
-          <div class="dx-field-label">ชื่อ</div>
+          <div class="dx-field-label">ชื่อ <span style="color: #f00;"> *</span></div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="firstname">
               <dx-validator>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">นามสกุล</div>
+          <div class="dx-field-label">นามสกุล <span style="color: #f00;"> *</span></div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="lastname">
               <dx-validator>
@@ -74,11 +74,11 @@
       </div>
 
       <div class="dx-fieldset">
-        <div class="dx-fieldset-header"  style="font-weight:bold;">ช่องทางการติดต่อ</div>
+        <div class="dx-fieldset-header" style="font-weight:bold;">ช่องทางการติดต่อ</div>
         <div class="dx-field">
-          <div class="dx-field-label">เบอร์มือถือ</div>
+          <div class="dx-field-label">เบอร์มือถือ <span style="color: #f00;"> *</span></div>
           <div class="dx-field-value">
-            <dx-text-box mask="(+66) 000-000-0000" maskInvalidMessage="The phone must have a correct USA phone format"
+            <dx-text-box mask="000-000-0000" maskInvalidMessage="The phone must have a correct USA phone format"
               validationMessagePosition="left" [(value)]="phone">
               <dx-validator>
                 <dxi-validation-rule type="pattern"
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">อีเมลล์</div>
+          <div class="dx-field-label">อีเมลล์ <span style="color: #f00;"> *</span></div>
           <div class="dx-field-value">
             <dx-text-box validationMessagePosition="left" [(value)]="email">
               <dx-validator>
@@ -100,49 +100,35 @@
             </dx-text-box>
           </div>
         </div>
-        <!-- <div class="dx-field">
-          <div class="dx-field">
-            <div class="dx-field-label">สถานะการใช้งาน</div>
-            <div class="dx-field-value">
-              <dx-select-box [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
-                <dx-validator>
-
-                </dx-validator>
-              </dx-select-box>
-            </div>
-          </div>
-        </div>    -->
         <div class="dx-field">
-          <div class="dx-fieldset-header" style="font-weight:bold;">สิทธิการใช้งาน</div>
+          <div class="dx-fieldset-header" style="font-weight:bold;">สิทธิการใช้งาน </div>
           <div class="dx-field">
-            <div class="dx-field-label">สถานะการใช้งาน</div>
+            <div class="dx-field-label">สถานะการใช้งาน <span style="color: #f00;"> *</span></div>
             <div class="dx-field-value">
-              <dx-radio-group
-                [items]="priorities"
-                layout="horizontal"
-                [(value)]="usestat"
-                 validationMessagePosition="left"
-                (onValueChanged)="statuschange()"
+              <dx-radio-group [items]="priorities" layout="horizontal" [(value)]="usestatshow"
+                validationMessagePosition="left" (onValueChanged)="statuschange()">
                 >
-              >
               </dx-radio-group>
             </div>
           </div>
           <div class="dx-field">
-            <div class="dx-field-label">สิทธิผู้ใช้งาน</div>
+            <div class="dx-field-label">สิทธิผู้ใช้งาน <span style="color: #f00;"> *</span></div>
             <div class="dx-field-value">
-              <dx-radio-group
-                [items]="status"
-                layout="horizontal"
-                [(value)]="statusrecord"
-                validationMessagePosition="left" (onValueChanged)="userchange()"
+              <dx-radio-group [items]="status" layout="horizontal" [(value)]="adduserstatshow"
+                validationMessagePosition="left" (onValueChanged)="userchange()">
                 >
-              >
               </dx-radio-group>
             </div>
           </div>
         </div>
+        <!-- <div class="dx-fieldset-header" style="font-weight:bold;">อัปโหลดรูปภาพผู้ใช้</div>
+        <div>
+
+          <app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
+          <div style="display: flex; justify-content: center;">
+            <img [src]="imageUrl" [hidden]="!showImage" alt="" width="250px" height="150px">
+          </div>
+        </div> -->
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">
@@ -151,6 +137,7 @@
           <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/user-listview" icon="remove">
 
           </dx-button>
+
         </div>
       </div>
     </form>

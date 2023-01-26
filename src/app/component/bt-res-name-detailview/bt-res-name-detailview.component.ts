@@ -12,25 +12,33 @@ import { baseUrl, BtResUser, Value } from 'src/app/service/BtResUserService';
 })
 export class BtResNameDetailviewComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
+
+
+  }
   title = "";
   head = "";
   id: any;
   resname = "";
   phone = "";
   detail = "";
-  statusrecord :any;
+  statusrecord: any;
   data: any;
-  usestatus ="";
-  img :any;
-  priorities = [{value: 'เปิดร้าน', text:'เปิดร้าน'},{value: 'ปิดร้าน',text:'ปิดร้าน'}];
-  response : any;
-  img1:any;
+  usestatus = "";
+  img: any;
+  priorities = [{ value: 'เปิดร้าน', text: 'เปิดร้าน' }, { value: 'ปิดร้าน', text: 'ปิดร้าน' }];
+  response: any;
+  img1: any;
   opentime = [
     "เปิดร้าน", "ปิดร้าน"
   ];
-  read : boolean = true;
-  selectedOption:any;
+  read: boolean = true;
+  selectedOption: any;
+
+  showImage = false;
+  imageUrl: any;
+
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (!this.id) {
@@ -40,7 +48,8 @@ export class BtResNameDetailviewComponent implements OnInit {
       this.phone = "";
       this.detail = "";
       this.statusrecord = "";
-      this.read= false;
+      this.read = false;
+      this.img = "";
     } else {
       console.log(this.id);
       this.title = "แก้ใขข้อมูลร้านอาหาร";
@@ -52,17 +61,21 @@ export class BtResNameDetailviewComponent implements OnInit {
         this.phone = this.data.Value.RES_PHONE;
         this.detail = this.data.Value.RES_DETAIL;
         this.statusrecord = this.data.Value.RES_STATUS;
+        this.img = this.data.Value.RES_IMAGE;
 
-
+        if (this.img != null){
+          this.imageUrl = 'https://utcc-prc.demotoday.net/bt-order-api'+ this.img
+          this.showImage = true
+        }
         if (this.statusrecord === 'O') {
           this.priorities.forEach((item) => {
-            if(item.value === 'เปิดร้าน') {
+            if (item.value === 'เปิดร้าน') {
               this.statusrecord = item;
             }
           });
         } else if (this.statusrecord === 'C') {
           this.priorities.forEach((item) => {
-            if(item.value === 'ปิดร้าน') {
+            if (item.value === 'ปิดร้าน') {
               this.statusrecord = item;
             }
           });
@@ -84,7 +97,7 @@ export class BtResNameDetailviewComponent implements OnInit {
       RES_PHONE: this.phone,
       RES_DETAIL: this.detail,
       RES_STATUS: this.usestatus,
-      // RES_IMAGE: this.response.Value.fileUrl
+      RES_IMAGE: this.img
     };
     const formData = new FormData();
     formData.append('RES_NAME', this.resname);
@@ -92,15 +105,15 @@ export class BtResNameDetailviewComponent implements OnInit {
     formData.append('RES_PHONE', this.phone);
     formData.append('RES_DETAIL', this.detail);
     formData.append('RES_STATUS', this.usestatus);
-    // formData.append('RES_IMAGE', this.response.Value.dbPath);
+    formData.append('RES_IMAGE', this.img);
     // formData.append('USER_EMAIL', this.email);
     // formData.append('USER_RIGHTS', "U");
     console.log(data1);
     if (!this.id) {
-const headers = new HttpHeaders();
-  headers.append('Content-Type', 'multipart/form-data');
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'multipart/form-data');
 
-      this.http.post(namelisturl, formData,{headers}).subscribe(response => {
+      this.http.post(namelisturl, formData, { headers }).subscribe(response => {
         console.log(response);
         this.router.navigate(['/resname-list'])
       },
@@ -113,15 +126,15 @@ const headers = new HttpHeaders();
         `คุณต้องการแก้ข้อมูลนี้หรือไม่?`);
       if (!confirm) {
         return;
-      }else{
+      } else {
         this.http.put(namelisturl + '/' + this.id, data1).subscribe(response => {
-        console.log(response);
-        this.router.navigate(['/resname-list'])
-      },
-        error => {
-          console.error(error);
-        }
-      );
+          console.log(response);
+          this.router.navigate(['/resname-list'])
+        },
+          error => {
+            console.error(error);
+          }
+        );
       }
 
     }
@@ -135,10 +148,15 @@ const headers = new HttpHeaders();
       console.log(this.usestatus);
     }
   }
-  public onUploadFinished =(event:any)=>{
-      this.response =event;
-      this.img = this.response.Value.fileUrl;
-      console.log(this.response.Value.fileUrl);
+  public onUploadFinished = (event: any) => {
+    this.response = event;
+    this.img = this.response.Value.fileUrl;
+    console.log(this.response.Value.fileUrl);
+    if (this.img != null){
+      this.showImage = true
+      this.imageUrl = 'https://utcc-prc.demotoday.net/bt-order-api'+ this.img
+    }
   }
+
 }
 

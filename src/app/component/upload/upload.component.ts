@@ -23,7 +23,7 @@ uploadFile = (files: any) => {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    this.http.post('http://localhost:43308/api/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://utcc-prc.demotoday.net/bt-order-api/api/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe({
         next: (event) => {
         if (event.type === HttpEventType.UploadProgress)

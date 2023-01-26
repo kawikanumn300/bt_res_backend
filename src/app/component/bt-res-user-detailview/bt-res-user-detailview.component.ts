@@ -26,7 +26,13 @@ export class BtResUserDetailviewComponent implements OnInit {
   statusrecord: any;
   data: any;
   usestat: any;
-  addusestat = ""
+  addusestat: any;
+  response: any;
+  img: any;
+  usestatshow: any;
+  showImage: any;
+  imageUrl: any;
+  adduserstatshow: any;
   priorities = [{ value: 'ใช้งาน', text: 'ใช้งาน' }, { value: 'ไม่ใช้งาน', text: 'ไม่ใช้งาน' }];
   status = [{ value: 'ผู้ดูแลระบบ', text: 'ผู้ดูแลระบบ' }, { value: 'ผู้ใช้ทั่วไป', text: 'ผู้ใช้ทั่วไป' }
   ];
@@ -66,13 +72,13 @@ export class BtResUserDetailviewComponent implements OnInit {
         if (this.usestat === 'A') {
           this.priorities.forEach((item) => {
             if (item.value === 'ใช้งาน') {
-              this.usestat = item;
+              this.usestatshow = item;
             }
           });
         } else if (this.usestat === 'I') {
           this.priorities.forEach((item) => {
             if (item.value === 'ไม่ใช้งาน') {
-              this.usestat = item;
+              this.usestatshow = item;
             }
           });
         }
@@ -80,13 +86,13 @@ export class BtResUserDetailviewComponent implements OnInit {
         if (this.statusrecord === 'A') {
           this.status.forEach((item) => {
             if (item.value === 'ผู้ดูแลระบบ') {
-              this.statusrecord = item;
+              this.adduserstatshow = item;
             }
           });
         } else if (this.statusrecord === 'U') {
           this.status.forEach((item) => {
             if (item.value === 'ผู้ใช้ทั่วไป') {
-              this.statusrecord = item;
+              this.adduserstatshow = item;
             }
           });
         }
@@ -167,21 +173,32 @@ export class BtResUserDetailviewComponent implements OnInit {
   }
 
   statuschange() {
-    if (this.statusrecord.text === "ใช้งาน") {
+    if (this.usestatshow.text === "ใช้งาน") {
       this.usestatus = "A"
       console.log(this.usestatus);
+      console.log(this.usestatshow.text);
     } else {
       this.usestatus = "I"
       console.log(this.usestatus);
+      console.log(this.usestatshow.text);
     }
   }
   userchange() {
-    if (this.usestat.text === "ผู้ดูแลระบบ") {
+    if (this.adduserstatshow.text === "ผู้ดูแลระบบ") {
       this.addusestat = "A"
       console.log(this.addusestat);
     } else {
       this.addusestat = "U"
       console.log(this.addusestat);
+    }
+  }
+  public onUploadFinished = (event: any) => {
+    this.response = event;
+    this.img = this.response.Value.fileUrl;
+    console.log(this.response.Value.fileUrl);
+    if (this.img != null) {
+      this.showImage = true
+      this.imageUrl = 'https://utcc-prc.demotoday.net/bt-order-api' + this.img
     }
   }
 }

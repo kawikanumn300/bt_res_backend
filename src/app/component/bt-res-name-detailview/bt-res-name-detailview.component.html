@@ -9,7 +9,7 @@
       <div class="dx-fieldset">
         <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
         <div class="dx-field">
-          <div class="dx-field-label">ชื่อร้านอาหาร</div>
+          <div class="dx-field-label">ชื่อร้านอาหาร <span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="resname">
               <dx-validator>
@@ -22,7 +22,7 @@
       <div class="dx-fieldset">
         <div class="dx-fieldset-header" style="font-weight:bold;">ช่องทางการติดต่อ</div>
         <div class="dx-field">
-          <div class="dx-field-label">เบอร์มือถือ</div>
+          <div class="dx-field-label">เบอร์มือถือ<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box mask="000-000-0000" maskInvalidMessage="The phone must have a correct USA phone format"
               validationMessagePosition="left" [(value)]="phone">
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">ข้อมูลเพิ่มเติม</div>
+          <div class="dx-field-label">ข้อมูลเพิ่มเติม<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box validationMessagePosition="left" [(value)]="detail">
               <dx-validator>
@@ -47,7 +47,7 @@
         <div class="dx-field">
           <div class="dx-fieldset-header" style="font-weight:bold;">ปรับเวลา เปิด/ปิด</div>
           <div class="dx-field">
-            <div class="dx-field-label">สถานะ เปิด/ปิด</div>
+            <div class="dx-field-label">สถานะ เปิด/ปิด<span style="color: #f00;">*</span></div>
             <div class="dx-field-value">
               <dx-radio-group [items]="priorities" [(value)]="statusrecord" layout="horizontal"
                 (onValueChanged)="statuschange()">
@@ -69,10 +69,12 @@
           </div>
         </div> -->
         <div class="dx-fieldset-header" style="font-weight:bold;">อัปโหลดรูปภาพร้านอาหาร</div>
-
-        <!-- <div ><app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
-        <div style="display: flex; justify-content: center;"><img src="http://localhost:43308{{img}}" alt="" width="250px" height="150px" ></div>
-        </div> -->
+        <div>
+          <app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
+          <div style="display: flex; justify-content: center;">
+            <img [src]="imageUrl" [hidden]="!showImage" alt="" width="250px" height="150px">
+          </div>
+        </div>
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">

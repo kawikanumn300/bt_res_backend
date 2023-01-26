@@ -52,6 +52,18 @@ export class LoginComponent {
           this.router.navigate(['/mainmenu', { name: this.name, lastname: this.lastname }])
         }
         else {
+          await custom({
+            messageHtml: "คุณไม่มีสิทธิ์ เข้าถึงข้อมูลส่วนนี้",
+            title: "แจ้งเตือน",
+            buttons: [
+              {
+                text: "ตกลง",
+
+              }
+            ]
+          }).show().then(() => {
+
+          });
           console.log("user not have permission")
 
         }

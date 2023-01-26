@@ -18,6 +18,8 @@ export class BtResUserListviewComponent implements OnInit {
   id_edit: any;
   status = "";
   ishidden = false;
+  rowindex=0;
+
   constructor(private http: HttpClient, private router: Router) {
 
 
@@ -68,7 +70,7 @@ export class BtResUserListviewComponent implements OnInit {
   async deletedata(event: any, d: any) {
     this.id_delete = d.data.USER_ID;
     const confirm = await Dialogue.Confirm("ยืนยัน",
-      `คุณต้องการลบข้อมูลนี้หรือไม่?`);
+      "คุณต้องการลบข้อมูลนี้หรือไม่?");
     if (!confirm) {
       return;
     }

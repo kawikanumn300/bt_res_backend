@@ -1,33 +1,36 @@
 <app-navbar> </app-navbar>
 <div class="container">
   <div class="bw-nav">
-    <div class="cm-title-pages" style="font-weight:bold;">จัดการข้อมูลร้านอาหาร</div>
+    <div class="cm-title-pages" style="font-weight:bold;">รายการสั่งอาหาร</div>
   </div>
   <!--btn-class  -->
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto; float: left; max-width: 80%;" [dataSource]="data"
-    keyExpr="RES_ID" [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)"
+    keyExpr="BILL_ID" [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)"
     [dateSerializationFormat]="'yyyy-MM-dd'">
     <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." [(text)] ="datafromcalendar" ></dxo-search-panel>
 
     <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="BILL_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_ID" [width]="230">
+    <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_ID" [width]="170">
       <dxo-lookup [dataSource]="resdata" valueExpr="RES_ID" displayExpr="RES_NAME">
       </dxo-lookup>
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="230">
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="150">
       <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME">
       </dxo-lookup>
     </dxi-column>
-    <dxi-column alignment="center" caption="รายการอาหาร" dataField="FOOD_ID" [width]="230">
+    <dxi-column alignment="center" caption="รายการอาหาร" dataField="FOOD_ID" [width]="200">
       <dxo-lookup [dataSource]="fooddata" valueExpr="FOOD_ID" displayExpr="FOOD_NAME">
       </dxo-lookup>
     </dxi-column>
 
     <dxi-column alignment="center" caption="ราคาอาหาร" dataField="BILL_RESULT" [width]="100">
     </dxi-column>
-    <dxi-column alignment="center" caption="รายละเอียดอาหาร" dataField="RES_ID" [width]="300"
+    <dxi-column alignment="center" caption="เพิ่มเติม" dataField="BILL_OPTION" [width]="100"
+     >
+    </dxi-column>
+    <dxi-column alignment="center" caption="อื่นๆ" dataField="BILL_NOTE" [width]="100"
      >
     </dxi-column>
     <dxi-column alignment="center" caption="วันที่สั่ง" [width]="200" [allowEditing]="true" dataField="CREATE_DATE"

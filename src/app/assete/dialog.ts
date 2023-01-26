@@ -6,7 +6,7 @@ export class Dialogue {
             custom({
                 showTitle: true,
                 title: title,
-                messageHtml: `<div class="text-center"></div><br><h6>${message}</h6>`,
+                messageHtml: `<div class="center"></div><br>${message}`,
                 buttons: [
                     {
                         icon: "check", text: "ใช่", type: "success", focusStateEnabled: false,

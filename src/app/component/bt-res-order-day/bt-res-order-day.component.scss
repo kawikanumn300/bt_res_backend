@@ -30,7 +30,7 @@
     outline: 0;
     border: 1px solid transparent;
     float: right;
-}   
+}
 ::ng-deep .calendar-container {
     display: flex;
     flex-direction: column;
@@ -76,52 +76,48 @@
     background-color: #ffc10773;
 }
 
-::ng-deep #dx-col-10 {
+::ng-deep #dx-col-38 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-11 {
+::ng-deep #dx-col-37 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-12 {
+::ng-deep #dx-col-36 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-13 {
+::ng-deep #dx-col-32 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-14 {
+::ng-deep #dx-col-33 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-6 {
+::ng-deep #dx-col-34 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
 
-::ng-deep #dx-col-7 {
+::ng-deep #dx-col-35 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
+}::ng-deep #dx-col-39 {
+  background: rgba(38, 93, 165, 0.862745098);
+  color: white;
 }
 
-::ng-deep #dx-col-8 {
-    background: rgba(38, 93, 165, 0.862745098);
-    color: white;
+::ng-deep #dx-col-40 {
+  background: rgba(38, 93, 165, 0.862745098);
+  color: white;
 }
-
-::ng-deep #dx-col-9 {
-    background: rgba(38, 93, 165, 0.862745098);
-    color: white;
-}
-
-
 .input-group {
     width: 20%;
 }

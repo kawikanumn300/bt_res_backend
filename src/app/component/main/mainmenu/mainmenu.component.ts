@@ -15,7 +15,9 @@ constructor(private router: ActivatedRoute) {}
 
 
   todayNumber: number = Date.now();
-  todayDate : Date = new Date();
+  todayDate : Date = new Date() ;
   todayString : string = new Date().toDateString();
   todayISOString : string = new Date().toISOString();
+
+
 }

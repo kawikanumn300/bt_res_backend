@@ -9,11 +9,11 @@
 
   <!--btn-class  -->
   <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID"
-    [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+    [showBorders]="true"noDataText="ไม่มีข้อมูล"  (onToolbarPreparing)="OnToolbarPrePreparing($event)">
     <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
-    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
-      alignment="center">
+    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField=""
+      alignment="center" cellTemplate="cellTemplate">
     </dxi-column>
     <dxi-column alignment="center" caption="ชื่อร้านอาหาร" dataField="RES_NAME" [width]="290">
     </dxi-column>
@@ -24,7 +24,7 @@
     </dxi-column>
     <dxi-column alignment="center" caption="รายละเอียดร้านอาหาร" dataField="RES_DETAIL" [width]="400">
     </dxi-column>
-    
+
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
         <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
@@ -32,8 +32,7 @@
     </dxi-column>
     <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'delete'">
-        <img
-          src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
+        <img src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
       </div>
     </dxi-column>
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
@@ -46,6 +45,10 @@
       <dx-button icon="add" type="success" requirePermission="ADD" text=" เพิ่ม" class="dx-btn-add"
         routerLink="/resname-detailview">
       </dx-button>
+    </div>
+    <div *dxTemplate="let cell of 'cellTemplate'">
+      {{ cell.component.pageIndex() * cell.component.pageSize() + cell.rowIndex + 1 }}
+
     </div>
   </dx-data-grid>
   <div style="padding-top: 20px;">

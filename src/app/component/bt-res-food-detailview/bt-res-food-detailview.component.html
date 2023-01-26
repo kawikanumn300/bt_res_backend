@@ -2,19 +2,19 @@
 
 <div class="container" style="padding-top: 1%;">
   <div class="bw-nav">
-    <div class="cm-title-pages" style="font-weight:bold;">ข้อมูลรายการอาหาร</div>
+    <div class="cm-title-pages" style="font-weight:bold;">{{head}}</div>
   </div>
   <div class="card">
     <form action="your-action" (ngSubmit)="Submit()">
       <div class="dx-fieldset">
         <div class="dx-field">
-          <div class="dx-fieldset-header" style="font-weight:bold;">{{head}}</div>
+          <div class="dx-fieldset-header" style="font-weight:bold;">ข้อมูลรายการอาหาร</div>
           <div class="dx-field">
-            <div class="dx-field-label">รายชื่อร้านอาหาร</div>
+            <div class="dx-field-label">รายชื่อร้านอาหาร <span style="color: #f00;">*</span></div>
             <div class="dx-field-value">
               <dx-select-box [dataSource]="resnameselect" validationMessagePosition="left"
                 (onValueChanged)="onSelectionChanged($event)" displayExpr="RES_NAME" valueExpr="RES_ID"
-                [value]="defaultResId" 
+                [value]="defaultResId"
                 >
 
               </dx-select-box>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">ชื่ออาหาร</div>
+          <div class="dx-field-label">ชื่ออาหาร<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box [(value)]="foodname">
               <dx-validator>
@@ -35,25 +35,27 @@
       <div class="dx-fieldset">
         <div class="dx-fieldset-header" style="font-weight:bold;">ราคาอาหาร</div>
         <div class="dx-field">
-          <div class="dx-field-label">ธรรมดา</div>
+          <div class="dx-field-label">ธรรมดา<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
-            <dx-text-box validationMessagePosition="left" [(value)]="foodnormal">
+            <dx-text-box validationMessagePosition="left" [(value)]="foodnormal" >
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกราคาอาหาร"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
-                  message="City must have at least 2 symbols"></dxi-validation-rule>
+                  message="กรุณากรอกราคาอาหาร"></dxi-validation-rule>
+                <dxi-validation-rule type="numeric"message="กรุณากรอกตัวเลขเท่านั้น" ></dxi-validation-rule>
               </dx-validator>
             </dx-text-box>
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">พิเศษ</div>
+          <div class="dx-field-label">พิเศษ<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box validationMessagePosition="left" [(value)]="foodspacial">
               <dx-validator>
                 <dxi-validation-rule type="required" message="กรุณากรอกราคาอาหาร"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
                   message="City must have at least 2 symbols"></dxi-validation-rule>
+                  <dxi-validation-rule type="numeric"message="กรุณากรอกตัวเลขเท่านั้น" ></dxi-validation-rule>
               </dx-validator>
             </dx-text-box>
           </div>
@@ -61,7 +63,7 @@
         <div class="dx-field">
           <div class="dx-fieldset-header" style="font-weight:bold;">ข้อมูลเพิ่มเติม</div>
           <div class="dx-field">
-            <div class="dx-field-label">สถานะอาหาร</div>
+            <div class="dx-field-label">สถานะอาหาร <span style="color: #f00;">*</span></div>
             <div class="dx-field-value">
               <dx-radio-group [items]="priorities" [(value)]="statusrecord" layout="horizontal"
               (onValueChanged)="statuschange()"
@@ -78,7 +80,7 @@
           </div>
         </div>
         <div class="dx-field">
-          <div class="dx-field-label">รายละเอียดอาหาร</div>
+          <div class="dx-field-label">รายละเอียดอาหาร<span style="color: #f00;">*</span></div>
           <div class="dx-field-value">
             <dx-text-box validationMessagePosition="left" [(value)]="fooddetail">
               <dx-validator>
@@ -87,6 +89,13 @@
                   message="City must have at least 2 symbols"></dxi-validation-rule>
               </dx-validator>
             </dx-text-box>
+          </div>
+        </div>
+        <div class="dx-fieldset-header" style="font-weight:bold;">อัปโหลดรูปภาพอาหาร</div>
+        <div>
+          <app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
+          <div style="display: flex; justify-content: center;">
+            <img [src]="imageUrl" [hidden]="!showImage" alt="" width="250px" height="150px">
           </div>
         </div>
         <div class="row-btn">

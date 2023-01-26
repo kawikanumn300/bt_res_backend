@@ -6,19 +6,20 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="RES_ID"
-    [showBorders]="true" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="BILL_ID"
+    [showBorders]="true" noDataText="ไม่มีข้อมูล"  (onToolbarPreparing)="OnToolbarPrePreparing($event)">
     <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
-    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="RES_ID"
+    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="BILL_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="RES_NAME" [width]="250">
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="250">
+      <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup>
     </dxi-column>
-    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="RES_PHONE" [width]="150">
+    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="BILL_RESULT" [width]="150">
     </dxi-column>
     <dxi-column alignment="center" caption="สถานะการจ่ายเงิน" dataField="RES_STATUS" [width]="150"
-      [calculateDisplayValue]="GetStatus">
+      [calculateDisplayValue]="">
     </dxi-column>
     <dxi-column alignment="center" caption="วันที่ชำระ" dataField="RES_PHONE" [width]="300">
     </dxi-column>

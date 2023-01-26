@@ -6,7 +6,9 @@ import { HttpClient} from '@angular/common/http';
 import { Dialogue } from 'src/app/assete/dialog';
 import { finalize } from 'rxjs';
 import DataSource from 'devextreme/data/data_source';
-import { BtResNameList, namelisturl ,Value} from 'src/app/service/BtResNameListService';
+
+import { userbill,BtResUserBill ,Value} from 'src/app/service/BtResUserBillService';
+import { baseUrl, BtResUser } from 'src/app/service/BtResUserService';
 
 @Component({
   selector: 'app-bt-res-user-bill',
@@ -18,6 +20,7 @@ export class BTRESUSERBILLComponent implements OnInit{
   id_delete:any;
   id_edit:any;
   id_image:any;
+  userdata:any;
 
   @ViewChild(DxDataGridComponent)
   dataGrid!: DxDataGridComponent;
@@ -41,21 +44,25 @@ export class BTRESUSERBILLComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.http.get<BtResNameList>(namelisturl).subscribe(response => {
+    this.http.get<BtResUserBill>(userbill).subscribe(response => {
       this.data = response.Value;
-       console.log(this.data);
+      //  console.log(this.data);
+    });
+    this.http.get<BtResUser>(baseUrl).subscribe(response => {
+      this.userdata = response.Value;
+      //  console.log(this.data);
     });
   }
 
   async deletedata(event:any, d:any){
-    this.id_delete= d.data.RES_ID;
+    this.id_delete= d.data.BILL_ID;
     const confirm = await Dialogue.Confirm("ยืนยัน",
             `คุณต้องการลบข้อมูลนี้หรือไม่?`);
         if (!confirm) {
             return;
         }
 
-        this.http.delete(namelisturl+"/"+this.id_delete).subscribe(
+        this.http.delete(userbill+"/"+this.id_delete).subscribe(
           _=>{
             custom({
               messageHtml: "ลบข้อมูลเรียบร้อย",
@@ -70,26 +77,26 @@ export class BTRESUSERBILLComponent implements OnInit{
 
         )})
        // this.dataGrid.instance.refresh();
-    console.log(d.data.RES_ID);
+    console.log(d.data.BILL_ID);
 
   }
 
   editdata(event:any,d:any){
-    this.id_edit = d.data.RES_ID;
+    this.id_edit = d.data.BILL_ID;
     this.router.navigate(['/bt-pay-edit',{id:this.id_edit}]);
   }
   editimage(event:any,d:any){
-    this.id_image = d.data.RES_ID;
+    this.id_image = d.data.BILL_ID;
     this.router.navigate(['/bt-pay-image',{id:this.id_image}]);
   }
 
-  GetStatus(Status: Value) {
-    let data1;
-    if (Status.RES_STATUS === "O") {
-      data1 = "เปิด";
-    } else if (Status.RES_STATUS === "C") { data1 = "ปิด"; }
-    return data1;
-  }
+  // GetStatus(Status: Value) {
+  //   let data1;
+  //   if (Status.RES_STATUS === "O") {
+  //     data1 = "เปิด";
+  //   } else if (Status.RES_STATUS === "C") { data1 = "ปิด"; }
+  //   return data1;
+  // }
   OnToolbarPrePreparing(e:any) {
     if (e.toolbarOptions.items.length > 0) {
         e.toolbarOptions.items[0].location = "before";
