@@ -1,11 +1,35 @@
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 20%;
+  padding-right: 10px;
+}
+.col-md-4 {
+  flex: 0 0 auto;
+  width: 50.33333333%;
+}
+
 
 .row-btn{
     padding-top: 10px;
     padding-left: 40%;
   }
+  .row > * {
+    /* flex-shrink: 0; */
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.1);
+    padding-left: calc(var(--bs-gutter-x) * 0.1);
+    margin-top: var(--bs-gutter-y);
+}
   .container{
       width: 45%;
   }
+  .container-btn{
+    width: 70%;
+    float:right;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
   .bw-nav {
       padding-top: 5%;
       padding-bottom: 2%;
@@ -35,10 +59,14 @@
     ::ng-deep #buttonsummit {
      background-color:  #5cb85c;
      color:#fff;
+     width: 100%;
      
     }
-    .dx-button-mode-contained .dx-icon {
+    .dx-button-mode-contained.dx-button-danger {
+      background-color: #d9534f;
+      border-color: transparent;
       color: #fff;
+      width: 100%;
   }
   
   

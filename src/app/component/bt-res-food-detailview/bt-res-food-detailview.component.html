@@ -69,13 +69,6 @@
               (onValueChanged)="statuschange()"
               >
               </dx-radio-group>
-              <!-- <div class="dx-field-label">สถานะอาหาร</div>
-            <div class="dx-field-value">
-              <dx-select-box [dataSource]="opentime" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
-                <dx-validator>
-                </dx-validator>
-              </dx-select-box> -->
             </div>
           </div>
         </div>
@@ -92,20 +85,29 @@
           </div>
         </div>
         <div class="dx-fieldset-header" style="font-weight:bold;">อัปโหลดรูปภาพอาหาร</div>
+       
         <div>
-          <app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
           <div style="display: flex; justify-content: center;">
             <img [src]="imageUrl" [hidden]="!showImage" alt="" width="250px" height="150px">
           </div>
         </div>
-        <div class="row-btn">
-          <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
+        <div class="container-btn ">
+        <div class="row">
+          <div class="col">
+           <app-upload (onUploadFinished)="onUploadFinished($event)"></app-upload>
+          </div>
+          <div class="col">
+                     <dx-button class="dx-button-mode-contained .dx-icon " id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">
             <i class="bi bi-save" style="padding-right: 10px;"></i>บันทึกข้อมูล
-          </dx-button>&nbsp;
-          <dx-button width="48%" id="button" text="ยกเลิก" type="danger" routerLink="/food-list" icon="remove">
           </dx-button>
+          </div>
+          <div class="col">  
+          <dx-button  id="button" text="ยกเลิก" type="danger" routerLink="/food-list" icon="remove">
+          </dx-button>
+          </div>
         </div>
+      </div>
       </div>
     </form>
   </div>

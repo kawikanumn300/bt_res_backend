@@ -41,10 +41,10 @@ import { BtResFoodListviewComponent } from './component/bt-res-food-listview/bt-
 import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
 import { BTRESUSERBILLComponent } from './component/bt-res-user-bill/bt-res-user-bill.component';
 import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
-import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
 import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-order-day.component';
 import { UploadComponent } from './component/upload/upload.component';
 import { ThaiDatePipe } from './assete/thaidate.pipe';
+import { ImgPayPopupComponent } from './assete/img-pay-popup/img-pay-popup.component';
 const icons = {
 
   LogOut
@@ -65,9 +65,9 @@ const icons = {
     BtResFoodDetailviewComponent,
     BTRESUSERBILLComponent,
     BtResUserPayEditComponent,
-    BtResUserPayImageComponent,
     BtResOrderDayComponent,
     UploadComponent,
+    ImgPayPopupComponent,
 
 
   ],

@@ -11,8 +11,8 @@ import { BtResNameDetailviewComponent } from './component/bt-res-name-detailview
 import { BtResFoodDetailviewComponent } from './component/bt-res-food-detailview/bt-res-food-detailview.component';
 import { BTRESUSERBILLComponent } from './component/bt-res-user-bill/bt-res-user-bill.component';
 import { BtResUserPayEditComponent } from './component/bt-res-user-pay-edit/bt-res-user-pay-edit.component';
-import { BtResUserPayImageComponent } from './component/bt-res-user-pay-image/bt-res-user-pay-image.component';
 import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-order-day.component';
+import { ImgPayPopupComponent } from './assete/img-pay-popup/img-pay-popup.component';
 
 
 
@@ -67,13 +67,13 @@ const routes: Routes = [
     component: BtResUserPayEditComponent
   },
   {
-    path:'bt-pay-image',
-    component: BtResUserPayImageComponent
-  },
-  {
     path:'bt-order-day',
     component: BtResOrderDayComponent
   },
+  {
+    path:'img-pay-popup',
+    component:ImgPayPopupComponent
+  }
 
 
 ];
