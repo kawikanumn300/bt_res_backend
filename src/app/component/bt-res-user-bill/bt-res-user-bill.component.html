@@ -17,7 +17,7 @@
           <dxi-column caption="รหัสผู้ใช้" [width]="100" [allowFiltering]="false" [allowSorting]="false"
             dataField="USER_ID" alignment="center">
           </dxi-column>
-          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="300">
+          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="250">
             <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
           </dxi-column>
           <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="USER_BALANCE" [width]="100">
@@ -36,7 +36,7 @@
           </div>
         </dxi-column> -->
           <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
-          <dxo-paging [pageSize]="10"> </dxo-paging>
+          <dxo-paging [pageSize]="5"> </dxo-paging>
           <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
             [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
             [showNavigationButtons]="showNavButtons">
@@ -66,7 +66,7 @@
           </dxi-column>
           <dxi-column caption="รูปภาพการชำระเงิน" cellTemplate="pay" alignment="center" [width]="100">
             <div class="pointer" *dxTemplate="let d of 'pay'">
-              <img src="assets/img/paylist.png" width="31px" (click)="editimage($event, d)">
+              <img src="assets/img/paylist.png" width="30px" (click)="editimage($event, d)">
             </div>
           </dxi-column>
           <!-- <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
@@ -81,7 +81,7 @@
       </div>
     </dxi-column> -->
           <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
-          <dxo-paging [pageSize]="10"> </dxo-paging>
+          <dxo-paging [pageSize]="5"> </dxo-paging>
           <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
             [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
             [showNavigationButtons]="showNavButtons">

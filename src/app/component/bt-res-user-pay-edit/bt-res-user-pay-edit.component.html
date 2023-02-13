@@ -26,8 +26,8 @@
             <dx-text-box [(value)]="userbalance">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
-                <dxi-validation-rule type="stringLength" [min]="2"
-                  message="Name must have at least 2 symbols"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="1"
+                  message="Name must have at least 1 symbols"></dxi-validation-rule>
               </dx-validator>
             </dx-text-box>
           </div>

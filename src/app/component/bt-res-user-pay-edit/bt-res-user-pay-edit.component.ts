@@ -89,7 +89,7 @@ export class BtResUserPayEditComponent implements OnInit {
 
       this.http.post(baseUrl, data1).subscribe(response => {
         console.log(response);
-        this.router.navigate(['/user-listview'])
+        this.router.navigate(['/bt-user-bill'])
       },
         error => {
           console.error(error);
@@ -103,7 +103,7 @@ export class BtResUserPayEditComponent implements OnInit {
       }else{
         this.http.put(baseUrl + '/' + this.id, data1).subscribe(response => {
         console.log(response);
-        this.router.navigate(['/user-listview'])
+        this.router.navigate(['/bt-user-bill'])
       },
         error => {
           console.error(error);
