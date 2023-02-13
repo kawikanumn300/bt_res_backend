@@ -2,41 +2,96 @@
 
 <div class="container">
   <div class="bw-nav">
-    <div class="cm-title-pages" style="font-weight:bold;">ตรวจสอบสถานะการชำระเงิน</div>
+
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="userdata" keyExpr="USER_ID"
-    [showBorders]="true" noDataText="ไม่มีข้อมูล"  (onToolbarPreparing)="OnToolbarPrePreparing($event)">
-    <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+  <div class="">
+    <div class="row">
+      <div class="col">
+        <div class="cm-title-pages" style="font-weight:bold; padding-bottom: 20px;">จัดการยอดค้างชำระ</div>
+        <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="userdata" keyExpr="USER_ID"
+          [showBorders]="true" noDataText="ไม่มีข้อมูล" (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+          <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
-    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
-      alignment="center">
-    </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="250">
-      <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
-    </dxi-column>
-    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="USER_BALANCE" [width]="250">
-      <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
-    </dxi-column>
+          <dxi-column caption="รหัสผู้ใช้" [width]="100" [allowFiltering]="false" [allowSorting]="false"
+            dataField="USER_ID" alignment="center">
+          </dxi-column>
+          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="300">
+            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          </dxi-column>
+          <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="USER_BALANCE" [width]="100">
+            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          </dxi-column>
 
-    <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
-      <div class="pointer" *dxTemplate="let d of 'edit'">
-        <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
+          <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
+            <div class="pointer" *dxTemplate="let d of 'edit'">
+              <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
+            </div>
+          </dxi-column>
+          <!-- <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+          <div class="pointer" *dxTemplate="let d of 'delete'">
+            <img
+              src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
+          </div>
+        </dxi-column> -->
+          <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+          <dxo-paging [pageSize]="10"> </dxo-paging>
+          <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
+            [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons">
+          </dxo-pager>
+        </dx-data-grid>
       </div>
-    </dxi-column>
-    <!-- <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+
+      <div class="col">
+        <div class="cm-title-pages" style="font-weight:bold;padding-bottom: 20px;">ตรวจสอบสถานะการชำระเงิน</div>
+        <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="userdata" keyExpr="USER_ID"
+          [dateSerializationFormat]="'yyyy-MM-dd'" [showBorders]="true" noDataText="ไม่มีข้อมูล"
+          (onToolbarPreparing)="OnToolbarPrePreparing($event)">
+          <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
+
+          <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
+            alignment="center">
+          </dxi-column>
+          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="200">
+            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          </dxi-column>
+          <dxi-column alignment="center" caption="วันที่ชำระ" dataField="CREATE_DATE" [width]="200" dataType="date"
+            format="dd-MM-yyyy">
+            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          </dxi-column>
+          <dxi-column alignment="center" caption="ยอดที่ชำระ" dataField="USER_BALANCE" [width]="100">
+            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          </dxi-column>
+          <dxi-column caption="รูปภาพการชำระเงิน" cellTemplate="pay" alignment="center" [width]="100">
+            <div class="pointer" *dxTemplate="let d of 'pay'">
+              <img src="assets/img/paylist.png" width="31px" (click)="editimage($event, d)">
+            </div>
+          </dxi-column>
+          <!-- <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
+            <div class="pointer" *dxTemplate="let d of 'edit'">
+              <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
+            </div>
+          </dxi-column> -->
+          <!-- <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'delete'">
         <img
           src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
       </div>
     </dxi-column> -->
-    <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
-    <dxo-paging [pageSize]="10"> </dxo-paging>
-    <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
-      [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
-    </dxo-pager>
-  </dx-data-grid>
+          <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+          <dxo-paging [pageSize]="10"> </dxo-paging>
+          <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
+            [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons">
+          </dxo-pager>
+        </dx-data-grid>
+      </div>
+    </div>
+  </div>
+
+
   <div style="padding-top: 20px;">
     <dx-button id="btn-exit" text="หน้าหลัก" type="danger" routerLink="/mainmenu" icon="home">
     </dx-button>
