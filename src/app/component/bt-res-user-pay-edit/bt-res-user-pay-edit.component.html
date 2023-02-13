@@ -23,7 +23,7 @@
         <div class="dx-field">
           <div class="dx-field-label">ยอดค้างชำระ</div>
           <div class="dx-field-value">
-            <dx-text-box [(value)]="firstname">
+            <dx-text-box [(value)]="userbalance">
               <dx-validator>
                 <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
                 <dxi-validation-rule type="stringLength" [min]="2"
@@ -32,22 +32,18 @@
             </dx-text-box>
           </div>
         </div>
-        
-        <div class="dx-field">
+
+        <!-- <div class="dx-field">
           <div class="dx-field">
             <div class="dx-field-label">สถานะการจ่ายเงิน</div>
             <div class="dx-field-value">
-              <dx-radio-group
-                [items]="priorities"
-                [value]="priorities[1]"
-                layout="horizontal"
-                [dataSource]="status" validationMessagePosition="left" (onValueChanged)="statuschange()"
-                [(value)]="statusrecord">
-              >
+              <dx-radio-group [items]="priorities" [value]="priorities[1]" layout="horizontal" [dataSource]="status"
+                validationMessagePosition="left" (onValueChanged)="statuschange()" [(value)]="statusrecord">
+                >
               </dx-radio-group>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row-btn">
           <dx-button class="dx-button-mode-contained .dx-icon " width="50%" id="buttonsummit" type="submit"
             [useSubmitBehavior]="true">
@@ -60,4 +56,3 @@
     </form>
   </div>
 </div>
-

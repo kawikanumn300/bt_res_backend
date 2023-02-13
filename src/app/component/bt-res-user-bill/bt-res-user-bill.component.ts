@@ -51,7 +51,7 @@ export class BTRESUSERBILLComponent implements OnInit {
     });
     this.http.get<BtResUser>(baseUrl).subscribe(response => {
       this.userdata = response.Value;
-      //  console.log(this.data);
+       console.log(this.userdata);
     });
   }
 
@@ -84,7 +84,7 @@ export class BTRESUSERBILLComponent implements OnInit {
   }
 
   editdata(event: any, d: any) {
-    this.id_edit = d.data.BILL_ID;
+    this.id_edit = d.data.USER_ID;
     this.router.navigate(['/bt-pay-edit', { id: this.id_edit }]);
   }
   editimage(event: any, d: any) {

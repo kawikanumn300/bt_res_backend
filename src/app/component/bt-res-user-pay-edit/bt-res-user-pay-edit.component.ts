@@ -24,6 +24,7 @@ export class BtResUserPayEditComponent implements OnInit {
   phone = "";
   email = "";
   statusrecord = "";
+  userbalance :any;
   data: any;
   priorities = ['ใช้งาน','ไม่ใช้งาน',];
   status = [
@@ -62,6 +63,7 @@ export class BtResUserPayEditComponent implements OnInit {
         this.phone = this.data.Value.USER_PHONE_NUMBER;
         this.email = this.data.Value.USER_EMAIL;
         this.statusrecord = this.data.Value.USER_RIGHTS;
+        this.userbalance = this.data.Value.USER_BALANCE;
       });
 
     }
@@ -71,15 +73,7 @@ export class BtResUserPayEditComponent implements OnInit {
   }
   async Submit() {
     const data1 = {
-      USER_USERNAME: this.username,
-      USER_PASSWORD: this.password,
-      USER_NAME: this.firstname,
-      USER_LASTNAME: this.lastname,
-      RECORD_STATUS: "A",
-      USER_PHONE_NUMBER: this.phone,
-      USER_EMAIL: this.email,
-      //USER_RIGHTS: "U",
-      USER_STATUS: this.usestatus
+      USER_BALANCE: this.userbalance
     };
     // const formData = new FormData();
     // formData.append('USER_USERNAME', this.username);
@@ -135,6 +129,6 @@ export class BtResUserPayEditComponent implements OnInit {
       console.log(this.usestatus);
     }
   }
-  
+
 }
 

@@ -6,39 +6,31 @@
   </div>
 
   <!--btn-class  -->
-  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="data" keyExpr="BILL_ID"
+  <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="userdata" keyExpr="USER_ID"
     [showBorders]="true" noDataText="ไม่มีข้อมูล"  (onToolbarPreparing)="OnToolbarPrePreparing($event)">
     <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
-    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="BILL_ID"
+    <dxi-column caption="ลำดับ" [width]="50" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
       alignment="center">
     </dxi-column>
-    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="250">
-      <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup>
+    <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="250">
+      <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
     </dxi-column>
-    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="BILL_RESULT" [width]="150">
+    <dxi-column alignment="center" caption="ยอดค้างชำระ" dataField="USER_BALANCE" [width]="250">
+      <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
     </dxi-column>
-    <dxi-column alignment="center" caption="สถานะการจ่ายเงิน" dataField="RES_STATUS" [width]="150"
-      [calculateDisplayValue]="">
-    </dxi-column>
-    <dxi-column alignment="center" caption="วันที่ชำระ" dataField="RES_PHONE" [width]="300">
-    </dxi-column>
-    <dxi-column caption="รูปภาพการชำระเงิน" cellTemplate="pay" alignment="center" [width]="200">
-      <div class="pointer" *dxTemplate="let d of 'pay'">
-        <img src="assets/img/paylist.png" width="31px" (click)="editimage($event, d)">
-      </div>
-    </dxi-column>
+
     <dxi-column caption="แก้ไข" cellTemplate="edit" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'edit'">
         <img src="assets/img/edit.png" width="30px" (click)="editdata($event, d)">
       </div>
     </dxi-column>
-    <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
+    <!-- <dxi-column caption="ลบ" cellTemplate="delete" alignment="center" [width]="100">
       <div class="pointer" *dxTemplate="let d of 'delete'">
         <img
           src="assets/img/delete.png" width="30px" (click)="deletedata($event, d)">
       </div>
-    </dxi-column>
+    </dxi-column> -->
     <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
     <dxo-paging [pageSize]="10"> </dxo-paging>
     <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
