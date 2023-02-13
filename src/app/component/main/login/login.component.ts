@@ -26,15 +26,15 @@ export class LoginComponent {
     this.http.post(baseUrl + '/login', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(async response => {
-      this.value = Object.values(response);
+      this.value = response;
 
-      if (this.value[0] == true) {
+      if (this.value.IsSuccess == true) {
         // console.log(this.value[5][2]);
-        this.name = this.value[5][0];
-        this.lastname = this.value[5][1];
+        this.name = this.value.Value.USER_NAME;
+        this.lastname = this.value.Value.USER_LASTNAME;
         // console.log(this.name);
         // console.log(this.lastname);
-        if (this.value[5][2] == "A") {
+        if (this.value.Value.USER_RIGHTS== "A") {
           await custom({
             messageHtml: "ยินดีต้อนรับเข้าสู่ระบบ",
             title: "สำเร็จ",
@@ -47,8 +47,8 @@ export class LoginComponent {
           }).show().then(() => {
 
           });
-          sessionStorage.setItem('name', this.value[5][0]);
-          sessionStorage.setItem('lname', this.value[5][1]);
+          sessionStorage.setItem('name', this.value.Value.USER_NAME);
+          sessionStorage.setItem('lname', this.value.Value.LASTUSER_NAME);
           this.router.navigate(['/mainmenu', { name: this.name, lastname: this.lastname }])
         }
         else {
