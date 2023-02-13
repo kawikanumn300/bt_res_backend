@@ -48,7 +48,7 @@ export class LoginComponent {
 
           });
           sessionStorage.setItem('name', this.value.Value.USER_NAME);
-          sessionStorage.setItem('lname', this.value.Value.LASTUSER_NAME);
+          sessionStorage.setItem('lname', this.value.Value.USER_LASTNAME);
           this.router.navigate(['/mainmenu', { name: this.name, lastname: this.lastname }])
         }
         else {
