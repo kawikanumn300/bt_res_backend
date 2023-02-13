@@ -1,14 +1,15 @@
-
 .bw-nav {
     padding-top: 5%;
     padding-bottom: 2%;
 }
-::ng-deep #btn-exit{
+
+::ng-deep #btn-exit {
     float: right;
     width: 10%;
     color: #fff;
     background: rgba(38, 93, 165, 0.862745098);
 }
+
 .cm-title-pages {
     font-size: 25px;
     font-family: 'IBM Plex Sans Thai', sans-serif;
@@ -57,6 +58,41 @@
     background-color: #ffc10773;
 }
 
+::ng-deep #dx-col-10 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-11 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-12 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-13 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-14 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-15 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
+::ng-deep #dx-col-16 {
+    background: rgba(38, 93, 165, 0.862745098);
+    color: white;
+}
+
 ::ng-deep #dx-col-17 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
@@ -81,10 +117,12 @@
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
+
 ::ng-deep #dx-col-22 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
 }
+
 ::ng-deep #dx-col-23 {
     background: rgba(38, 93, 165, 0.862745098);
     color: white;
@@ -182,6 +220,10 @@
     cursor: pointer;
 }
 
+::ng-deep #gridContainer {
+    max-width: 100%;
+}
+
 ::ng-deep #btn-color-add-resorce {
     cursor: pointer;
     color: black !important;
@@ -224,12 +266,14 @@
     font-size: .875rem;
     min-height: auto;
 }
+
 .dx-button-mode-contained.dx-button-success {
     background-color: #5cb85c;
     border-color: transparent;
     color: #fff;
     height: 35px;
 }
+
 .dx-button-mode-contained.dx-button-danger {
     background-color: #5cb85c;
     border-color: transparent;
