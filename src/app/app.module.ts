@@ -45,6 +45,7 @@ import { BtResOrderDayComponent } from './component/bt-res-order-day/bt-res-orde
 import { UploadComponent } from './component/upload/upload.component';
 import { ThaiDatePipe } from './assete/thaidate.pipe';
 import { ImgPayPopupComponent } from './assete/img-pay-popup/img-pay-popup.component';
+import { NgxLoadingModule } from "ngx-loading";
 const icons = {
 
   LogOut
@@ -95,7 +96,7 @@ const icons = {
     DxRadioGroupModule,
     DxGalleryModule,
     DxCalendarModule,
-
+    NgxLoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

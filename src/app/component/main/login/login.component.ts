@@ -19,15 +19,18 @@ export class LoginComponent {
   value: any;
   response: any;
   nameofuser: any;
+  isload = false;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
     const data = { USER_USERNAME: this.username, USER_PASSWORD: this.password };
+    this.isload = true;
     this.http.post(baseUrl + '/login', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(async response => {
       this.value = response;
-
+      this.isload = false;
       if (this.value.IsSuccess == true) {
         // console.log(this.value[5][2]);
         this.name = this.value.Value.USER_NAME;
