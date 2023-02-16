@@ -11,6 +11,7 @@ import { userbill, BtResUserBill, Value } from 'src/app/service/BtResUserBillSer
 import { baseUrl, BtResUser } from 'src/app/service/BtResUserService';
 import { ImgPayPopupComponent } from 'src/app/assete/img-pay-popup/img-pay-popup.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BtResPay, payurl } from 'src/app/service/BtResUserPayService';
 
 @Component({
   selector: 'app-bt-res-user-bill',
@@ -18,7 +19,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./bt-res-user-bill.component.scss']
 })
 export class BTRESUSERBILLComponent implements OnInit {
-  data: any;
+  paydata: any;
   id_delete: any;
   id_edit: any;
   id_image: any;
@@ -45,8 +46,8 @@ export class BTRESUSERBILLComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get<BtResUserBill>(userbill).subscribe(response => {
-      this.data = response.Value;
+    this.http.get<BtResPay>(payurl).subscribe(response => {
+      this.paydata = response.Value;
       //  console.log(this.data);
     });
     this.http.get<BtResUser>(baseUrl).subscribe(response => {

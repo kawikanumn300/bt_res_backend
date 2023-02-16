@@ -46,16 +46,17 @@
 
       <div class="col">
         <div class="cm-title-pages" style="font-weight:bold;padding-bottom: 20px;">ตรวจสอบสถานะการชำระเงิน</div>
-        <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="userdata" keyExpr="USER_ID"
+        <dx-data-grid #dataGrid id="gridContainer" style="margin: auto;" [dataSource]="paydata" keyExpr="PAY_ID"
           [dateSerializationFormat]="'yyyy-MM-dd'" [showBorders]="true" noDataText="ไม่มีข้อมูล"
           (onToolbarPreparing)="OnToolbarPrePreparing($event)">
           <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
           <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
             alignment="center">
+
           </dxi-column>
-          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_USERNAME" [width]="200">
-            <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
+          <dxi-column alignment="center" caption="ชื่อผู้ใช้" dataField="USER_ID" [width]="200">
+            <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup>
           </dxi-column>
           <dxi-column alignment="center" caption="วันที่ชำระ" dataField="CREATE_DATE" [width]="200" dataType="date"
             format="dd-MM-yyyy">
