@@ -51,7 +51,7 @@
           (onToolbarPreparing)="OnToolbarPrePreparing($event)">
           <dxo-search-panel [visible]="true" [width]="240" placeholder="ค้นหา..." location="before"></dxo-search-panel>
 
-          <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="USER_ID"
+          <dxi-column caption="ลำดับ" [width]="100" [allowFiltering]="false" [allowSorting]="false" dataField="PAY_ID"
             alignment="center">
 
           </dxi-column>
@@ -62,7 +62,7 @@
             format="dd-MM-yyyy">
             <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
           </dxi-column>
-          <dxi-column alignment="center" caption="ยอดที่ชำระ" dataField="USER_BALANCE" [width]="100">
+          <dxi-column alignment="center" caption="ยอดที่ชำระ" dataField="PAY_AMOUNT" [width]="100">
             <!-- <dxo-lookup [dataSource]="userdata" valueExpr="USER_ID" displayExpr="USER_NAME"></dxo-lookup> -->
           </dxi-column>
           <dxi-column caption="รูปภาพการชำระเงิน" cellTemplate="pay" alignment="center" [width]="100">

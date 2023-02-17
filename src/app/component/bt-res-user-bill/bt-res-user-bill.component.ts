@@ -48,7 +48,7 @@ export class BTRESUSERBILLComponent implements OnInit {
 
     this.http.get<BtResPay>(payurl).subscribe(response => {
       this.paydata = response.Value;
-      //  console.log(this.data);
+       console.log(this.paydata);
     });
     this.http.get<BtResUser>(baseUrl).subscribe(response => {
       this.userdata = response.Value;
@@ -89,7 +89,8 @@ export class BTRESUSERBILLComponent implements OnInit {
     this.router.navigate(['/bt-pay-edit', { id: this.id_edit }]);
   }
   editimage(event: any, d: any) {
-    this.id_image = d.data.BILL_ID;
+    this.id_image = d.data.PAY_ID;
+    console.log(this.id_image)
     const modalRef = this.modalService.open(ImgPayPopupComponent);
     modalRef.componentInstance.fooditem = this.id_image;
   }
